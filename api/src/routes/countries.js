@@ -2,10 +2,18 @@ const { Router } = require('express');
 const { Country, Activity } = require('../db');
 const router = Router();
 
-router.get('/', (req, res, next) => {
-    Country.findAll()
-        .then((countries) => res.json(countries))
-        .catch((e) => next(e))
+router.get('/', async (req, res) => {
+    const { name } = req.query
+    const allCountries = await Country.findAll()
+
+    if (name) {
+        const byName = await allCountries.filter(i => i.name.toLowerCase().includes(name.toLowerCase()))
+        byName.length ?
+            res.json(byName) :
+            res.status(404).send('No esta ese pais')
+    } else {
+        res.json(allCountries)
+    }
 });
 
 router.get('/:id', async (req, res, next) => {
@@ -13,12 +21,30 @@ router.get('/:id', async (req, res, next) => {
     let countries
 
     try {
-        if (id.length) {
-            countries = await Country.findByPk(id, {
-                include: Activity
-            })
+        if (id.length > 1) {
+            countries = await Country.findByPk(id, { include: Activity })
+
+            countries = {
+                id: countries.id,
+                name: countries.name,
+                image: countries.image,
+                continent: countries.continent,
+                capital: countries.capital,
+                subregion: countries.subregion,
+                area: countries.area,
+                population: countries.population,
+                activities: countries.activities.map((e) => {
+                    return {
+                        id: e.id,
+                        name: e.name,
+                        difficulty: e.difficulty,
+                        duration: e.duration,
+                        season: e.season
+                    }
+                })
+            }
         }
-        return res.json(countries)
+        res.json(countries)
     } catch (error) {
         next(error)
     }

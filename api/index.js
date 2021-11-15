@@ -28,8 +28,8 @@ conn.sync({ force: true }).then(async () => {
     return {
       id: e.cca3,
       name: e.name.common,
-      image: e.flags,
-      continent: e.continents,
+      image: e.flags[0],
+      continent: e.continents[0],
       capital: e.capital,
       subregion: e.subregion,
       area: e.area,
