@@ -1,14 +1,14 @@
 import axios from 'axios'
 
 import {
+    GET_ACTIVITY,
     BY_ACTIVITY,
     BY_CONTINENT,
     BY_NAME,
     BY_ODER,
     BY_POPULATION,
     GET_COUNTRIES,
-    GET_DETAIL,
-    POST_ACTIVITY
+    GET_DETAIL
 } from './constantes'
 
 export function getCountries() {
@@ -54,9 +54,9 @@ export function getByName(name) {
 }
 
 export function postActivity(payload) {
-    return async function (dispatch) {
+    return async function () {
         try {
-            const res = await axios.post('http://localhost:3001/activities/', payload)
+            const res = await axios.post('http://localhost:3001/activity/', payload)
             return res;
         } catch (error) {
             console.log(error)
@@ -89,5 +89,19 @@ export function byActivity(payload) {
     return {
         type: BY_ACTIVITY,
         payload
+    }
+}
+
+export function getActivity() {
+    return async function (dispatch) {
+        try {
+            const res = await axios.get('http://localhost:3001/activity');
+            return dispatch({
+                type: GET_ACTIVITY,
+                payload: res.data
+            })
+        } catch (error) {
+            console.log(error)
+        }
     }
 }

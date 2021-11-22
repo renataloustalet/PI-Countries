@@ -1,0 +1,38 @@
+
+.topnav {
+    overflow: hidden;
+    background-color: #313131;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #c4c4c4;
+    color: #313131;
+}
+
+/* Style the "active" element to highlight the current page */
+.topnav a.active {
+    background-color: #2196f3;
+    color: white;
+}
+
+/* Style the search box inside the navigation bar */
+.topnav input[type="text"] {
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+    border-radius: 2%;
+}

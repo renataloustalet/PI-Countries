@@ -1,16 +1,21 @@
 import {
+    GET_ACTIVITY,
     BY_CONTINENT,
     BY_NAME,
     BY_ODER,
     BY_POPULATION,
     GET_COUNTRIES,
     GET_DETAIL,
-    POST_ACTIVITY
+    BY_ACTIVITY
 } from '../actions/constantes'
 
 const initialState = {
     countries: [],
     allContinents: [],
+    population: [],
+    allActivities: [],
+    totalActivities: [],
+    activity: [],
     details: []
 }
 
@@ -20,7 +25,9 @@ function reducer(state = initialState, action) {
             return {
                 ...state,
                 countries: action.payload,
-                allContinents: action.payload
+                allContinents: action.payload,
+                population: action.payload,
+                allActivities: action.payload
             }
         case GET_DETAIL:
             return {
@@ -32,10 +39,6 @@ function reducer(state = initialState, action) {
                 ...state,
                 countries: action.payload
             }
-        case POST_ACTIVITY:
-            return {
-                ...state
-            }
         case BY_ODER:
             const orderCountries = action.payload === 'Asc' ?
                 state.countries.sort(function (a, b) {
@@ -45,7 +48,7 @@ function reducer(state = initialState, action) {
                     if (b.name > a.name) {
                         return -1
                     }
-                    return 0
+                    return 0;
                 }) :
                 state.countries.sort(function (a, b) {
                     if (a.name > b.name) {
@@ -60,11 +63,34 @@ function reducer(state = initialState, action) {
                 ...state,
                 countries: orderCountries
             }
-        case BY_POPULATION:
-            /*             const orderPopulation = action.payload === 'Max' ?
-                         */
+        case GET_ACTIVITY:
             return {
-                ...state
+                ...state,
+                activity: action.payload
+            }
+        case BY_POPULATION:
+            const orderPopulation = action.payload === 'Min' ?
+                state.countries.sort(function (a, b) {
+                    if (a.population > b.population) {
+                        return 1;
+                    }
+                    if (b.population > a.population) {
+                        return -1;
+                    }
+                    return 0;
+                }) :
+                state.countries.sort(function (a, b) {
+                    if (a.population > b.population) {
+                        return -1;
+                    }
+                    if (b.population > a.population) {
+                        return 1;
+                    }
+                    return 0;
+                })
+            return {
+                ...state,
+                population: orderPopulation
             }
         case BY_CONTINENT:
             const allContinents = state.allContinents;
@@ -73,6 +99,14 @@ function reducer(state = initialState, action) {
             return {
                 ...state,
                 countries: continentFilter
+            }
+        case BY_ACTIVITY:
+            const allActivities = state.allActivities;
+            const activityFilter = action.payload === 'All' ? allActivities :
+                allActivities.filter(c => c.activities && c.activities.filter((e) => e.name === action.payload).length)
+            return {
+                ...state,
+                countries: activityFilter
             }
         default: return state;
     }

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { getCountries, postActivity } from '../../actions/index'
+import { getActivity, getCountries, postActivity } from '../../actions/index'
+import NavActivity from '../Nav/NavActivity'
+import style from './AddActivity.module.css'
 
 function AddActivity() {
 
@@ -17,11 +19,12 @@ function AddActivity() {
         countries: []
     })
 
-    console.log(input)
-    console.log(countries)
-
     useEffect(() => {
         dispatch(getCountries())
+    }, [])
+
+    useEffect(() => {
+        dispatch(getActivity())
     }, [])
 
     function handleChange(e) {
@@ -35,6 +38,29 @@ function AddActivity() {
         setInput({
             ...input,
             countries: [...input.countries, e.target.value]
+        })
+    }
+
+    function handleCheckSeason(e) {
+        if (e.target.checked) {
+            setInput({
+                ...input,
+                season: e.target.value
+            })
+        }
+    }
+
+    function handleSelctDifficulty(e) {
+        setInput({
+            ...input,
+            difficulty: e.target.value
+        })
+    }
+
+    function handleDelete(e) {
+        setInput({
+            ...input,
+            countries: input.countries.filter(c => c !== e)
         })
     }
 
@@ -52,29 +78,65 @@ function AddActivity() {
         history.push('/countries')
     }
 
+    const season = ['Summer', 'Autumn', 'Winter', 'Spring'];
+    const difficulty = [1, 2, 3, 4, 5];
+
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <label>Activity name:</label>
-                <input type="text" value={input.name} name="name" onChange={handleChange} />
+            <NavActivity />
+            <div className={style.contenedor}>
+                <div>
+                    <div>
+                        <form onSubmit={handleSubmit}>
+                            <div className={style.activity}>
+                                <label>Activity: </label>
+                                <input type="text" value={input.name} name="name" onChange={handleChange} className={style.input} required />
+                            </div>
 
-                <label>season</label>
-                <input type="text" value={input.season} name="season" onChange={handleChange} />
+                            <div className={style.activity}>
+                                <label>Season: </label>
+                                {season.map(e => (
+                                    <label className={style.checkboxContainer}>
+                                        <input type="radio" value={e} name="season" onChange={handleCheckSeason} required />
+                                        {e}
+                                    </label>
+                                ))}
+                            </div>
 
-                <label>difficulty</label>
-                <input type="text" value={input.difficulty} name="difficulty" onChange={handleChange} />
+                            <div className={style.activity}>
+                                <label>Difficulty: </label>
+                                <select onChange={handleSelctDifficulty} required>
+                                    {difficulty.map(e => (
+                                        <option value={e} name="difficulty">{e}</option>
+                                    ))}
+                                </select>
+                            </div>
 
-                <label>duration</label>
-                <input type="text" value={input.duration} name="duration" onChange={handleChange} />
-                
-                <label>Country:</label>
-                <select onChange={e => handleSelect(e)}>
-                    {countries.map(e => (
-                        <option value={e.countries} name="countries">{e.name}</option>
-                    ))}
-                </select>
-                <button type="submit">submit</button>
-            </form>
+                            <div className={style.activity}>
+                                <label>Duration: </label>
+                                <input type="text" value={input.duration} name="duration" onChange={handleChange} className={style.input} required />
+                            </div>
+
+                            <div className={style.activity}>
+                                <label>Country: </label>
+                                <select onChange={handleSelect} required>
+                                    {countries.map(e => (
+                                        <option value={e.id} name="countries" key={e.id} >{e.name}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            <ul>
+                                <li>{input.countries.map(i =>
+                                    <div className={style.countriesSelected}>
+                                        {i}
+                                        <button onClick={() => handleDelete(i)} type="button">-</button>
+                                    </div>)}</li>
+                            </ul>
+                            <button type="submit">submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

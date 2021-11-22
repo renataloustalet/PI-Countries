@@ -3,6 +3,15 @@ const { Activity, Country } = require('../db');
 
 const router = Router();
 
+router.get('/', async (req, res) => {
+    const allActivities = await Activity.findAll({ include: Country })
+    const filterA = allActivities.map(e => e.name.toLowerCase())
+    const total = filterA.filter((item, index) => {
+        return filterA.indexOf(item) === index;
+    })
+    res.json(total)
+});
+
 router.post('/', async (req, res, next) => {
 
     const {

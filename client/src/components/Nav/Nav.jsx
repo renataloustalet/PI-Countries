@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { getByName, getCountries } from '../../actions';
+import style from './Nav.module.css'
 
 function Nav() {
 
@@ -24,12 +25,15 @@ function Nav() {
     }
 
     return (
-        <div>
+        <div className={style.topnav}>
             <Link to='/countries' onClick={handleClick}>Home</Link>
-            <form>
-                <input type="text" placeholder="Country..." onChange={handleChange} value={name} />
-                <button type="submit" onClick={handleSubmit}>Search</button>
-            </form>
+            <Link to='/activity'>Add Activity</Link>
+            <div>
+                <form className={style.li}>
+                    <input type="text" placeholder="Country..." onChange={handleChange} value={name} />
+                    <button type="submit" onClick={handleSubmit}>Search</button>
+                </form>
+            </div>
         </div>
     )
 }

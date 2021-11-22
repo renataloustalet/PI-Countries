@@ -30,7 +30,7 @@ conn.sync({ force: true }).then(async () => {
       name: e.name.common,
       image: e.flags[0],
       continent: e.continents[0],
-      capital: e.capital,
+      capital: e.capital ? e.capital[0] : 'Not found',
       subregion: e.subregion,
       area: e.area,
       population: e.population

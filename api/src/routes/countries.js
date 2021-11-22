@@ -4,7 +4,9 @@ const router = Router();
 
 router.get('/', async (req, res) => {
     const { name } = req.query
-    const allCountries = await Country.findAll()
+    const allCountries = await Country.findAll({
+        include: Activity
+    })
 
     if (name) {
         const byName = await allCountries.filter(i => i.name.toLowerCase().includes(name.toLowerCase()))
