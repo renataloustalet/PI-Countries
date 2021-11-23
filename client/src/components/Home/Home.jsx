@@ -15,9 +15,8 @@ function Home() {
 
     const activity = useSelector(state => state.activity)
 
-
     const [currentPage, setCurrentPage] = useState(1)
-    const [countriesPerPage, setCountriesPerPage] = useState(10)
+    const [countriesPerPage, setCountriesPerPage] = useState(9)
     const indexLastCountry = currentPage * countriesPerPage
     const indexFirstCountry = indexLastCountry - countriesPerPage
     const allPagCountries = index.slice(indexFirstCountry, indexLastCountry)

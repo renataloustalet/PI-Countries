@@ -14,7 +14,6 @@ function NavDetails() {
     return (
         <div className={style.topnav}>
             <Link to='/countries' onClick={handleClick}>Home</Link>
-            <Link to='/activity'>Add Activity</Link>
         </div>
     )
 }

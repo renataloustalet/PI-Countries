@@ -8,7 +8,8 @@ import {
     BY_ODER,
     BY_POPULATION,
     GET_COUNTRIES,
-    GET_DETAIL
+    GET_DETAIL,
+    FAILURE
 } from './constantes'
 
 export function getCountries() {
@@ -20,7 +21,10 @@ export function getCountries() {
                 payload: res.data
             })
         } catch (error) {
-            console.log(error)
+            return dispatch({
+                type: FAILURE,
+                payload: error.response.data.msg
+            })
         }
     }
 }
@@ -48,7 +52,10 @@ export function getByName(name) {
                 payload: res.data
             })
         } catch (error) {
-            console.log(error)
+            return dispatch({
+                type: FAILURE,
+                payload: error.response.data.msg
+            })
         }
     }
 }

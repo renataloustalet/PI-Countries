@@ -1,3 +1,5 @@
-.paginado{
-    text-decoration: none;
+.paginado {
+    list-style: none;
+    cursor: pointer;
+    display: inline-block;
 }

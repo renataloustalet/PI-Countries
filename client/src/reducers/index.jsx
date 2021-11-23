@@ -6,7 +6,8 @@ import {
     BY_POPULATION,
     GET_COUNTRIES,
     GET_DETAIL,
-    BY_ACTIVITY
+    BY_ACTIVITY,
+    FAILURE
 } from '../actions/constantes'
 
 const initialState = {
@@ -14,9 +15,9 @@ const initialState = {
     allContinents: [],
     population: [],
     allActivities: [],
-    totalActivities: [],
     activity: [],
-    details: []
+    details: [],
+    error: ""
 }
 
 function reducer(state = initialState, action) {
@@ -27,7 +28,8 @@ function reducer(state = initialState, action) {
                 countries: action.payload,
                 allContinents: action.payload,
                 population: action.payload,
-                allActivities: action.payload
+                allActivities: action.payload,
+                error: ""
             }
         case GET_DETAIL:
             return {
@@ -37,7 +39,8 @@ function reducer(state = initialState, action) {
         case BY_NAME:
             return {
                 ...state,
-                countries: action.payload
+                countries: action.payload,
+                error: ""
             }
         case BY_ODER:
             const orderCountries = action.payload === 'Asc' ?
@@ -107,6 +110,11 @@ function reducer(state = initialState, action) {
             return {
                 ...state,
                 countries: activityFilter
+            }
+        case FAILURE:
+            return {
+                ...state,
+                error: action.payload
             }
         default: return state;
     }

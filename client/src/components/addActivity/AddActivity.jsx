@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import { getActivity, getCountries, postActivity } from '../../actions/index'
-import NavActivity from '../Nav/NavActivity'
+import NavDetails from '../Nav/NavDetails';
 import style from './AddActivity.module.css'
 
 function AddActivity() {
@@ -83,7 +83,7 @@ function AddActivity() {
 
     return (
         <div>
-            <NavActivity />
+            <NavDetails />
             <div className={style.contenedor}>
                 <div>
                     <div>
@@ -125,13 +125,15 @@ function AddActivity() {
                                     ))}
                                 </select>
                             </div>
+                            <div>
                             <ul>
-                                <li>{input.countries.map(i =>
-                                    <div className={style.countriesSelected}>
+                                <li className={style.countriesSelected}>{input.countries.map(i =>
+                                    <div>
                                         {i}
                                         <button onClick={() => handleDelete(i)} type="button">-</button>
                                     </div>)}</li>
                             </ul>
+                            </div>
                             <button type="submit">submit</button>
                         </form>
                     </div>

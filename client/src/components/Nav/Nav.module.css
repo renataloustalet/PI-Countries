@@ -2,6 +2,7 @@
 .topnav {
     overflow: hidden;
     background-color: #313131;
+    margin-bottom: 2%;
 }
 
 .topnav a {
@@ -20,13 +21,11 @@
     color: #313131;
 }
 
-/* Style the "active" element to highlight the current page */
 .topnav a.active {
     background-color: #2196f3;
     color: white;
 }
 
-/* Style the search box inside the navigation bar */
 .topnav input[type="text"] {
     float: right;
     padding: 6px;
