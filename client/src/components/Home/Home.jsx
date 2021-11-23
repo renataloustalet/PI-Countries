@@ -11,18 +11,27 @@ function Home() {
     const dispatch = useDispatch()
     const [order, setOrder] = useState('')
 
-    const index = useSelector(state => state.countries)
+    const countries = useSelector(state => state.countries)
 
     const activity = useSelector(state => state.activity)
-
+    // paginado
+    // guarda en un estado local la pagina actual // empieza en 1 porq arranco de la primera pagina
     const [currentPage, setCurrentPage] = useState(1)
+    // los paises que va a mostrar por pagina
     const [countriesPerPage, setCountriesPerPage] = useState(9)
-    const indexLastCountry = currentPage * countriesPerPage
-    const indexFirstCountry = indexLastCountry - countriesPerPage
-    const allPagCountries = index.slice(indexFirstCountry, indexLastCountry)
 
-    const paginado = (pageNumber) => {
-        setCurrentPage(pageNumber);
+    const [maxNumberLimit, setmaxNumberLimit] = useState(10);
+    // pagina actual  X la cantidad de paises por pagina
+    const indexFirstCountry = currentPage == 1 ? 0 : 9 + (currentPage - 2) * countriesPerPage
+    const indexLastCountry = indexFirstCountry + countriesPerPage// Math.min(indexFirstCountry + countriesPerPage, countries.length)
+    
+    // los paises q estan en la pagina actual
+    const allPagCountries = countries.slice(indexFirstCountry, indexLastCountry)
+
+    const paginado = (num) => {
+        setCurrentPage(num)
+        setCountriesPerPage(num == 1 ? 9 : 10)
+
     }
 
     useEffect(() => {
@@ -57,7 +66,7 @@ function Home() {
         dispatch(getActivity())
     }, [])
 
-    const mapContinents = index.map(e => e.continent)
+    const mapContinents = countries.map(e => e.continent)
     const filterContinents = mapContinents.filter((item, index) => {
         return mapContinents.indexOf(item) === index;
     })
@@ -99,9 +108,9 @@ function Home() {
                     </select>
                 </div>
             </div>
-            {allPagCountries.map(e => {
-                return (
-                    <div className={style.row}>
+            <div className={style.all}>
+                {allPagCountries.map(e => {
+                    return (
                         <div className={style.column}>
                             <div key={e.id} className={style.card}>
                                 <Link to={'/countries/' + e.id}>
@@ -111,13 +120,13 @@ function Home() {
                                 </Link>
                             </div>
                         </div>
-                    </div>
-                )
-            })}
+                    )
+                })}
+            </div>
             <div className={style.pagination}>
                 <Paginado
                     countriesPerPage={countriesPerPage}
-                    index={index.length}
+                    index={countries.length}
                     paginado={paginado}
                 ></Paginado>
             </div>

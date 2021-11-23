@@ -5,6 +5,7 @@ function Paginado({ countriesPerPage, index, paginado }) {
 
     const pageNumbers = [];
 
+    // va a redondear todos los personajes sobre la cantidad de paises q quiero x pagina
     for (let i = 1; i <= Math.ceil(index / countriesPerPage); i++) {
         pageNumbers.push(i)
     }
