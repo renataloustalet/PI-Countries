@@ -1,24 +1,22 @@
-/* eslint-disable import/no-extraneous-dependencies */
-const { expect } = require('chai');
-const session = require('supertest-session');
-const app = require('../../src/app.js');
-const { Country, conn } = require('../../src/db.js');
+var supertest = require('supertest-as-promised')(require('../../src/app'));
 
-const agent = session(app);
-const country = {
-  name: 'Argentina',
-};
+describe('Routes', function () {
 
-describe('Country routes', () => {
-  before(() => conn.authenticate()
-  .catch((err) => {
-    console.error('Unable to connect to the database:', err);
-  }));
-  beforeEach(() => Country.sync({ force: true })
-    .then(() => Country.create(pokemon)));
-  describe('GET /countries', () => {
-    it('should get 200', () =>
-      agent.get('/countries').expect(200)
-    );
-  });
+  describe('GET /countries', function () {
+    it('GET recibe todos los paises', function () {
+      return supertest
+        .get('/countries')
+        .expect(200)
+        .expect('Content-Type', /json/)
+    })
+
+    it('GET Recibe un país que no existe', function () {
+      return supertest
+        .get('/countries?name=Asgard')
+        .expect(404)
+        .expect('Not found')
+    })
+  })
 });
+
+
