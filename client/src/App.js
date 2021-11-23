@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import React from 'react'
 import Landing from './components/Landing/Landing.jsx';
 import Home from './components/Home/Home';
-import Card from './components/Card/Card';
+import Card from './components/Card/Card.jsx';
 import AddActivity from './components/addActivity/AddActivity';
 
 function App() {

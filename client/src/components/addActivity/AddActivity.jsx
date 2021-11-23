@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import { getActivity, getCountries, postActivity } from '../../actions/index'
 import NavActivity from '../Nav/NavActivity'
@@ -21,7 +21,7 @@ function AddActivity() {
 
     useEffect(() => {
         dispatch(getCountries())
-    }, [])
+    }, [dispatch])
 
     useEffect(() => {
         dispatch(getActivity())
