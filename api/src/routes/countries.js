@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
         const byName = await allCountries.filter(i => i.name.toLowerCase().includes(name.toLowerCase()))
         byName.length ?
             res.json(byName) :
-            res.status(404).send('No esta ese pais')
+            res.status(404).send('Not found')
     } else {
         res.json(allCountries)
     }
