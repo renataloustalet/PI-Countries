@@ -1,29 +1,57 @@
-
 .contenedor {
     display: inline-block;
     text-align: center;
     padding: 1%;
+    width: 40%;
     background: rgba(102, 105, 102, 0.3);
     border-radius: 3%;
-    height: 300px;
+    height: 100%;
 }
 
-.input {
-    width: 70%;
-    height: 25px;
+.contenedor button[type="submit"] {
+    font-size: 17px;
+    width: 20%;
+    height: 40px;
 }
 
-.activity{
-    margin-top: 2%;
+.contenedor input[type="text"] {
+    margin: 2%;
+    width: 350px;
+    height: 15px;
 }
 
-.checkboxContainer{
-    padding-left: 35px;
+.contenedor input[type="radio"] {
+    background-color: aqua;
     cursor: pointer;
 }
 
-.countriesSelected{
-    list-style: none;
+.contenedor select {
+    margin: 2%;
+    width: 360px;
+    height: 30px;
 }
 
+.contenedor li {
+    margin: 2%;
+    width: 360px;
+    list-style: none;
+    display: flex;
+}
 
+.contenedor li button {
+    margin-right: 10px;
+    border-radius:2px;
+}
+
+.contenedor .error{
+    font-size: 24px;
+    background-color: red;
+}
+
+.contenedor button:disabled{
+    background-color: aqua;
+}
+
+.countriesSelected{
+    align-items: center;
+}
