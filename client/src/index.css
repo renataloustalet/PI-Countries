@@ -24,12 +24,11 @@ button{
   color: white;
   border-style: none;
   border-radius: 5%;
-  font-size: 23px;
   cursor: pointer;
 }
 
 button:hover{
-  background-color: white;
+  background-color: #b4acac;
   color: #222222;
 }
 

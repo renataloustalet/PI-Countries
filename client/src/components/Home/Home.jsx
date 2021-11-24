@@ -108,10 +108,10 @@ function Home() {
                     </select>
                 </div>
             </div>
-            <div className={style.all}>
+            <div className={style.column}> 
                 {allPagCountries.map(e => {
                     return (
-                        <div className={style.column}>
+                        <div>
                             <div key={e.id} className={style.card}>
                                 <Link to={'/countries/' + e.id}>
                                     <p className={style.title}>{e.name}</p>
@@ -128,8 +128,8 @@ function Home() {
                     countriesPerPage={countriesPerPage}
                     index={countries.length}
                     paginado={paginado}
-                ></Paginado>
-            </div>
+                />
+            </div> 
         </div>
     )
 }

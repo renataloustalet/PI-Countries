@@ -16,7 +16,7 @@ function Paginado({ countriesPerPage, index, paginado }) {
                 {pageNumbers &&
                     pageNumbers.map(number => (
                         <li key={number} className={style.paginado}>
-                            <a onClick={() => paginado(number)} >{number}</a>
+                            <a onClick={() => paginado(number)} >{number}</a> &nbsp;
                         </li>
                     ))}
             </ul>

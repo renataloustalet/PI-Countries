@@ -86,6 +86,7 @@ function AddActivity() {
             <NavDetails />
             <div className={style.contenedor}>
                 <div>
+                    <h1>Add Activity</h1>
                     <div>
                         <form onSubmit={handleSubmit}>
                             <div className={style.activity}>
