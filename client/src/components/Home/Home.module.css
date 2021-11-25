@@ -1,14 +1,8 @@
-.images {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px;
-    height: 100px;
-    width: 150px;
-}
-
-.box {
-    width: 400px;
-    height: 200px;
+.column {
+    display: grid;
+    grid-template-columns: 350px 350px 350px;
+    grid-column-gap: 20px;
+    justify-content: center;
 }
 
 .card {
@@ -20,11 +14,24 @@
     color: white;
     margin: 2%;
     border-radius: 3%;
+}
 
+.card img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    height: 100px;
+    width: 150px;
 }
 
 .card:hover {
     background-color: rgba(255, 255, 255, 0.178);
+}
+
+.card a {
+    padding: 1%;
+    text-decoration: none;
+    color: white;
 }
 
 .title {
@@ -35,29 +42,12 @@
     font-size: 17px;
 }
 
-.column {
-    display: grid;
-    grid-template-columns: 350px 350px 350px;
-    grid-column-gap: 20px;
-    justify-content: center;
-}
-
-a {
-    padding: 1%;
-    text-decoration: none;
-    color: white;
-}
-
-.all {
-    margin: auto;
-}
-
 .filters {
     display: flex;
     justify-content: center;
-    margin: 1%;
+    margin-bottom: 1%;
 }
 
 .filter {
-    margin-right: 1%;
+    margin-right: 2%;
 }

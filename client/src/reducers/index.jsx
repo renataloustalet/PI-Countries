@@ -7,7 +7,8 @@ import {
     GET_COUNTRIES,
     GET_DETAIL,
     BY_ACTIVITY,
-    FAILURE
+    FAILURE,
+    LOADING
 } from '../actions/constantes'
 
 const initialState = {
@@ -17,7 +18,8 @@ const initialState = {
     allActivities: [],
     activity: [],
     details: [],
-    error: ""
+    error: "",
+    loading: false
 }
 
 function reducer(state = initialState, action) {
@@ -34,7 +36,8 @@ function reducer(state = initialState, action) {
         case GET_DETAIL:
             return {
                 ...state,
-                details: action.payload
+                details: action.payload,
+                loading: false
             }
         case BY_NAME:
             return {
@@ -115,6 +118,11 @@ function reducer(state = initialState, action) {
             return {
                 ...state,
                 error: action.payload
+            }
+        case LOADING:
+            return {
+                ...state,
+                loading: true
             }
         default: return state;
     }

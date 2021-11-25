@@ -20,17 +20,16 @@ function Home() {
     // los paises que va a mostrar por pagina
     const [countriesPerPage, setCountriesPerPage] = useState(9)
 
-    const [maxNumberLimit, setmaxNumberLimit] = useState(10);
     // pagina actual  X la cantidad de paises por pagina
-    const indexFirstCountry = currentPage == 1 ? 0 : 9 + (currentPage - 2) * countriesPerPage
+    const indexFirstCountry = currentPage === 1 ? 0 : 9 + (currentPage - 2) * countriesPerPage
     const indexLastCountry = indexFirstCountry + countriesPerPage// Math.min(indexFirstCountry + countriesPerPage, countries.length)
-    
+
     // los paises q estan en la pagina actual
     const allPagCountries = countries.slice(indexFirstCountry, indexLastCountry)
 
     const paginado = (num) => {
         setCurrentPage(num)
-        setCountriesPerPage(num == 1 ? 9 : 10)
+        setCountriesPerPage(num === 1 ? 9 : 10)
 
     }
 
@@ -66,10 +65,10 @@ function Home() {
         dispatch(getActivity())
     }, [])
 
-    const mapContinents = countries.map(e => e.continent)
-    const filterContinents = mapContinents.filter((item, index) => {
-        return mapContinents.indexOf(item) === index;
-    })
+    /*     const mapContinents = countries.map(e => e.continent)
+        const filterRepeatedContinents = [...new Set(mapContinents.map(e => e))]
+    
+        console.log(filterRepeatedContinents) */
 
     return (
         <div>
@@ -78,6 +77,8 @@ function Home() {
                 <div className={style.filter}>
                     <select onChange={handleContinents}>
                         <option value='All'>All continents</option>
+                        {/* {filterRepeatedContinents.map(e => (
+                                <option value={e}>{e}</option>))} */}
                         <option value='Africa'>Africa</option>
                         <option value='Antarctica'>Antarctica</option>
                         <option value='Asia'>Asia</option>
@@ -108,14 +109,14 @@ function Home() {
                     </select>
                 </div>
             </div>
-            <div className={style.column}> 
+            <div className={style.column}>
                 {allPagCountries.map(e => {
                     return (
                         <div>
                             <div key={e.id} className={style.card}>
                                 <Link to={'/countries/' + e.id}>
                                     <p className={style.title}>{e.name}</p>
-                                    <img src={e.image} className={style.images} />
+                                    <img src={e.image} alt={e.name}/>
                                     <p className={style.continent}>{e.continent}</p>
                                 </Link>
                             </div>
@@ -123,13 +124,13 @@ function Home() {
                     )
                 })}
             </div>
-            <div className={style.pagination}>
+            <div>
                 <Paginado
                     countriesPerPage={countriesPerPage}
                     index={countries.length}
                     paginado={paginado}
                 />
-            </div> 
+            </div>
         </div>
     )
 }

@@ -33,25 +33,22 @@
 
 .contenedor li {
     margin: 2%;
+    margin-bottom: 2%;
     width: 360px;
     list-style: none;
-    display: flex;
 }
 
 .contenedor li button {
     margin-right: 10px;
-    border-radius:2px;
+    border-radius: 2px;
 }
 
-.contenedor .error{
-    font-size: 24px;
-    background-color: red;
+.contenedor .error {
+    color: red;
+    text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.664);
 }
 
-.contenedor button:disabled{
-    background-color: aqua;
-}
-
-.countriesSelected{
-    align-items: center;
+.countriesSelected {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20% 20%;
 }

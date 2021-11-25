@@ -5,7 +5,6 @@ import { getCountries } from '../../actions';
 import style from './Nav.module.css'
 
 function NavDetails() {
-
     const dispatch = useDispatch()
 
     function handleClick() {

@@ -38,7 +38,7 @@ function Nav() {
                     </form>
                 </div>
             </div>
-            {error !== "" && <p>{error}</p>}
+            {error !== "" && <p className={style.error}>{error}</p>}
         </div>
     )
 }

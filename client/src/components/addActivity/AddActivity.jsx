@@ -18,13 +18,10 @@ function valida(input) {
 }
 
 function AddActivity() {
-
     const dispatch = useDispatch()
     const history = useHistory()
     const countries = useSelector(state => state.countries)
     const [errors, setErrors] = useState({})
-
-    const [activeButton, setActiveButton] = useState(false)
 
     const [input, setInput] = useState({
         name: '',
@@ -33,8 +30,6 @@ function AddActivity() {
         season: '',
         countries: []
     })
-
-    console.log(input)
 
     useEffect(() => {
         dispatch(getCountries())
@@ -55,16 +50,12 @@ function AddActivity() {
         }))
     }
 
-    function handleSelect(e) {
-            setInput({
-                ...input,
-                countries: [...input.countries, e.target.value]
-            })
+    function handleSelect(id) {
+        setInput({
+            ...input,
+            countries: [...input.countries, id.target.value]
+        })
     }
-
-    const filterRepeatedCountries = [...new Set(input.countries.map(e => e))]
-
-    console.log(filterRepeatedCountries)
 
     function handleCheckSeason(e) {
         if (e.target.checked) {
@@ -103,7 +94,6 @@ function AddActivity() {
         history.push('/countries')
     }
 
-
     const season = ['Summer', 'Autumn', 'Winter', 'Spring'];
     const difficulty = [1, 2, 3, 4, 5];
 
@@ -119,10 +109,9 @@ function AddActivity() {
                                 <label>Activity: </label>
                                 <input type="text" value={input.name} name="name" onChange={handleChange} placeholder="Activity name..." required />
                                 {errors.name && (
-                                    <p className="error">{errors.name}</p>
+                                    <p className={style.error}>{errors.name}</p>
                                 )}
                             </div>
-
                             <div>
                                 <label>Season: </label>
                                 {season.map(e => (
@@ -132,11 +121,10 @@ function AddActivity() {
                                     </label>
                                 ))}
                             </div>
-
                             <div>
                                 <label>Difficulty: </label>
                                 <select onChange={handleSelctDifficulty} required >
-                                    <option value="">Seleccione una opcion</option>
+                                    <option value="">Choose an option</option>
                                     {difficulty.map(e => (
                                         <option value={e} name="difficulty">{e}</option>
                                     ))}
@@ -147,10 +135,9 @@ function AddActivity() {
                                 <label>Duration: </label>
                                 <input type="text" value={input.duration} name="duration" onChange={handleChange} required placeholder="Hours...(only number)" />
                                 {errors.duration && (
-                                    <p>{errors.duration}</p>
+                                    <p className={style.error}>{errors.duration}</p>
                                 )}
                             </div>
-
                             <div>
                                 <label>Country: </label>
                                 <select onChange={handleSelect} required >
@@ -162,15 +149,14 @@ function AddActivity() {
                             </div>
                             <div>
                                 <ul>
-                                    <li className={style.countriesSelected}>{filterRepeatedCountries.map(i =>
+                                    <li className={style.countriesSelected}>{input.countries.map(i =>
                                         <div>
                                             {i}
                                             <button onClick={() => handleDelete(i)} type="button">X</button>
                                         </div>)}</li>
                                 </ul>
                             </div>
-                            <button type="reset">Reset</button>
-                            <button type="submit">Add</button>
+                            <button type="submit">Add Activity</button>
                         </form>
                     </div>
                 </div>

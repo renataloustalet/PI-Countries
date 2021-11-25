@@ -18,8 +18,8 @@
     color: #313131;
 }
 
-
-.topnav button, input[type="text"] {
+.topnav button,
+input[type="text"] {
     padding: 6px;
     border: none;
     margin-top: 8px;
@@ -28,9 +28,11 @@
     border-radius: 2%;
 }
 
-.search {
+.topnav .search {
     float: right;
 }
 
-
-
+.error {
+    color: red;
+    font-size: 20px;
+}

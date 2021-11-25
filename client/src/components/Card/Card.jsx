@@ -6,38 +6,47 @@ import style from './Card.module.css'
 
 function Card(props) {
     const dispatch = useDispatch()
-    const index = useSelector(state => state.details)
+    const details = useSelector(state => state.details)
+    const loading = useSelector(state => state.loading)
 
     useEffect(() => {
         dispatch(getDetail(props.match.params.id))
     }, [])
 
+    const activities = details.activities?.map(e => {
+        return {
+            name: e.name,
+            difficulty: e.difficulty,
+            duration: e.duration,
+            season: e.season
+        }
+    })
+
     return (
         <div>
             <NavDetails />
             <div className={style.card}>
+            {loading ? <p>Loading...</p> : details !== null ?
                 <div>
-                    <h1>{index.name}</h1>
-                    <img src={index.image} alt={index.name} className={style.imagen} />
-                    <p>Codigo: {index.id}</p>
-                    <p>Continent: {index.continent}</p>
-                    <p>Capital: {index.capital}</p>
-                    <p>Population: {index.population}</p>
-                    <p>Subregion: {index.subregion}</p>
-                    <p>Area: {index.area}</p>
+                    <h1>{details.name}</h1>
+                    <img src={details.image} alt={details.name} className={style.imagen} />
+                    <p>Code: {details.id}</p>
+                    <p>Continent: {details.continent}</p>
+                    <p>Capital: {details.capital}</p>
+                    <p>Population: {details.population}</p>
+                    <p>Subregion: {details.subregion}</p>
+                    <p>Area: {details.area}</p>
                     <h2>Activities</h2>
-                    {index.activities?.map(e => {
-                        return (
-                            <div>
-                                <p>Name: {e.name}</p>
-                                <p>Difficulty: {e.difficulty}</p>
-                                <p>Duration: {e.duration}</p>
-                                <p>Season: {e.season}</p>
-                                <hr></hr>
-                            </div>
-                        )
-                    })}
-                </div>
+                    {activities?.length > 0 ?
+                        <div>
+                            <p>Name: {activities[0].name}</p>
+                            <p>Difficulty: {activities[0].difficulty}</p>
+                            <p>Duration: {activities[0].duration}</p>
+                            <p>Season: {activities[0].season}</p>
+                            <hr></hr>
+                        </div> : <p>Without activities</p>}
+                </div> : <p>Country not found</p>
+                }
             </div>
         </div>
     )

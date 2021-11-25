@@ -9,7 +9,8 @@ import {
     BY_POPULATION,
     GET_COUNTRIES,
     GET_DETAIL,
-    FAILURE
+    FAILURE,
+    LOADING
 } from './constantes'
 
 export function getCountries() {
@@ -31,6 +32,9 @@ export function getCountries() {
 
 export function getDetail(id) {
     return async function (dispatch) {
+        dispatch({
+            type: LOADING
+        })
         try {
             const res = await axios.get(`http://localhost:3001/countries/${id}`)
             return dispatch({
