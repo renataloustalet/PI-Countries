@@ -27,17 +27,16 @@ function reducer(state = initialState, action) {
         case GET_COUNTRIES:
             return {
                 ...state,
+                error: "",
                 countries: action.payload,
                 allContinents: action.payload,
                 population: action.payload,
-                allActivities: action.payload,
-                error: ""
+                allActivities: action.payload
             }
         case GET_DETAIL:
             return {
                 ...state,
                 details: action.payload,
-                loading: false
             }
         case BY_NAME:
             return {
@@ -72,6 +71,7 @@ function reducer(state = initialState, action) {
         case GET_ACTIVITY:
             return {
                 ...state,
+                loading: false,
                 activity: action.payload
             }
         case BY_POPULATION:
@@ -107,9 +107,9 @@ function reducer(state = initialState, action) {
                 countries: continentFilter
             }
         case BY_ACTIVITY:
-            const allActivities = state.allActivities;
+            const allActivities = state.countries;
             const activityFilter = action.payload === 'All' ? allActivities :
-                allActivities.filter(c => c.activities && c.activities.filter((e) => e.name === action.payload).length)
+                allActivities.filter(c => c.activities.find((element) => element.name.toLowerCase() === action.payload.toLowerCase()))
             return {
                 ...state,
                 countries: activityFilter

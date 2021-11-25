@@ -32,10 +32,10 @@ export function getCountries() {
 
 export function getDetail(id) {
     return async function (dispatch) {
-        dispatch({
-            type: LOADING
-        })
         try {
+            dispatch({
+                type: LOADING
+            })
             const res = await axios.get(`http://localhost:3001/countries/${id}`)
             return dispatch({
                 type: GET_DETAIL,

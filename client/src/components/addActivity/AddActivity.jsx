@@ -94,6 +94,8 @@ function AddActivity() {
         history.push('/countries')
     }
 
+    console.log(input)
+
     const season = ['Summer', 'Autumn', 'Winter', 'Spring'];
     const difficulty = [1, 2, 3, 4, 5];
 
@@ -140,8 +142,8 @@ function AddActivity() {
                             </div>
                             <div>
                                 <label>Country: </label>
-                                <select onChange={handleSelect} required >
-                                    <option value="">Seleccione una opcion</option>
+                                <select onChange={handleSelect} required>
+                                    <option value="">Select country</option>
                                     {countries.map(e => (
                                         <option value={e.id} name="countries" key={e.id} >{e.name}</option>
                                     ))}

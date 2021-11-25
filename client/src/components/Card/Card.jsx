@@ -35,7 +35,7 @@ function Card(props) {
                     <p>Capital: {details.capital}</p>
                     <p>Population: {details.population}</p>
                     <p>Subregion: {details.subregion}</p>
-                    <p>Area: {details.area}</p>
+                    <p>Area: {details.area} km²</p>
                     <h2>Activities</h2>
                     {activities?.length > 0 ?
                         <div>

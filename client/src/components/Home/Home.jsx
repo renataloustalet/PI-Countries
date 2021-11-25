@@ -20,9 +20,9 @@ function Home() {
     // los paises que va a mostrar por pagina
     const [countriesPerPage, setCountriesPerPage] = useState(9)
 
-    // pagina actual  X la cantidad de paises por pagina
+    // pagina actual  X la cantidad de paises por pagina   // 9 + ...      // se multiplica para q de 10
     const indexFirstCountry = currentPage === 1 ? 0 : 9 + (currentPage - 2) * countriesPerPage
-    const indexLastCountry = indexFirstCountry + countriesPerPage// Math.min(indexFirstCountry + countriesPerPage, countries.length)
+    const indexLastCountry = indexFirstCountry + countriesPerPage
 
     // los paises q estan en la pagina actual
     const allPagCountries = countries.slice(indexFirstCountry, indexLastCountry)
@@ -30,7 +30,6 @@ function Home() {
     const paginado = (num) => {
         setCurrentPage(num)
         setCountriesPerPage(num === 1 ? 9 : 10)
-
     }
 
     useEffect(() => {
@@ -65,10 +64,6 @@ function Home() {
         dispatch(getActivity())
     }, [])
 
-    /*     const mapContinents = countries.map(e => e.continent)
-        const filterRepeatedContinents = [...new Set(mapContinents.map(e => e))]
-    
-        console.log(filterRepeatedContinents) */
 
     return (
         <div>
@@ -118,6 +113,7 @@ function Home() {
                                     <p className={style.title}>{e.name}</p>
                                     <img src={e.image} alt={e.name}/>
                                     <p className={style.continent}>{e.continent}</p>
+                                    <p>{e.population}</p>
                                 </Link>
                             </div>
                         </div>
