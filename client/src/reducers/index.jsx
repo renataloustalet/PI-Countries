@@ -37,6 +37,7 @@ function reducer(state = initialState, action) {
             return {
                 ...state,
                 details: action.payload,
+                loading: false
             }
         case BY_NAME:
             return {
