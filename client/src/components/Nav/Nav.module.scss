@@ -1,0 +1,83 @@
+.topnav {
+    overflow: hidden;
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #3a6ea7;
+
+    img {
+        padding-top: 2px;
+        padding-bottom: 2px;
+        &:hover {
+            cursor: url("../../images/airplane.png"), auto;
+        }
+    }
+
+    .activity {
+        color: white;
+        font-size: 22px;
+        text-decoration: none;
+    }
+}
+
+.topnav .a {
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    text-align: center;
+}
+
+.topnav .add {
+    float: left;
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav input[type="text"] {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border: none;
+    font-size: 15px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px -4px rgba(36, 36, 36, 0.81);
+}
+
+.topnav .search {
+    .submit {
+        color: grey;
+        cursor: pointer;
+        position: relative;
+        top: 2px;
+        left: -23px;
+        margin: 0 auto;
+    }
+}
+
+.error {
+    color: red;
+    font-size: 20px;
+}
+
+@media (max-width: 600px) {
+    .topnav {
+        display: flex;
+        justify-content: space-around;
+        .activity {
+            font-size: medium;
+        }
+        
+        img {
+            width: 50px;
+        }
+
+        input[type="text"]{
+            font-size: small;
+            width: 100px;
+            height: 25px;
+        }
+    }
+}

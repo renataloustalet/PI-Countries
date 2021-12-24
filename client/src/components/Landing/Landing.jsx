@@ -1,16 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import style from './Landing.module.css'
+import style from './Landing.module.scss';
+import earth from '../../images/earth.svg';
 
 function Landing() {
     return (
-        <div>
-            <Link to='/countries'>
-                <div className={style.container}>
-                    <button>Enter</button>
-                </div>
-            </Link>
-        </div>
+            <div lassName={style.container}>
+                <Link to='/countries'>
+                    <img src={earth} />
+                </Link>
+            </div>
     )
 }
 

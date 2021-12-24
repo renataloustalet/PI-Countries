@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import { getActivity, getCountries, postActivity } from '../../actions/index'
-import NavDetails from '../Nav/NavDetails';
-import style from './AddActivity.module.css'
+import style from './AddActivity.module.scss'
 
 function valida(input) {
     let errors = {}
@@ -101,20 +100,19 @@ function AddActivity() {
 
     return (
         <div>
-            <NavDetails />
             <div className={style.contenedor}>
                 <div>
                     <h1>Add Activity</h1>
                     <div>
                         <form onSubmit={handleSubmit}>
-                            <div>
+                            <div className={style.diva}>
                                 <label>Activity: </label>
                                 <input type="text" value={input.name} name="name" onChange={handleChange} placeholder="Activity name..." required />
                                 {errors.name && (
                                     <p className={style.error}>{errors.name}</p>
                                 )}
                             </div>
-                            <div>
+                            <div className={style.diva}>
                                 <label>Season: </label>
                                 {season.map(e => (
                                     <label>
@@ -123,19 +121,19 @@ function AddActivity() {
                                     </label>
                                 ))}
                             </div>
-                            <div>
+                            <div className={style.diffi}>
                                 <label>Difficulty: </label>
                                 <select onChange={handleSelctDifficulty} required >
-                                    <option value="">Choose an option</option>
+                                    <option value="" selected hidden disabled>Choose an option</option>
                                     {difficulty.map(e => (
                                         <option value={e} name="difficulty">{e}</option>
                                     ))}
                                 </select>
                             </div>
 
-                            <div>
+                            <div className={style.diva}>
                                 <label>Duration: </label>
-                                <input type="text" value={input.duration} name="duration" onChange={handleChange} required placeholder="Hours...(only number)" />
+                                <input type="text" value={input.duration} name="duration" onChange={handleChange} required placeholder="Hours...(only numbers)" />
                                 {errors.duration && (
                                     <p className={style.error}>{errors.duration}</p>
                                 )}
@@ -143,7 +141,7 @@ function AddActivity() {
                             <div>
                                 <label>Country: </label>
                                 <select onChange={handleSelect} required>
-                                    <option value="">Select country</option>
+                                    <option value="" selected hidden disabled>Select country</option>
                                     {countries.map(e => (
                                         <option value={e.id} name="countries" key={e.id} >{e.name}</option>
                                     ))}

@@ -1,0 +1,49 @@
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    width: 60%;
+    height: 70%;
+    background: #4fb468;
+    border-radius: 3%;
+    margin-bottom: 2%;
+    margin: auto;
+
+    .flag {
+        float: left;
+        position: relative;
+        left: -200px;
+
+        img {
+            height: 300px;
+            width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+        }
+    }
+
+    .cont {
+        padding-left: 50px;
+        display: flex;
+        margin-top: 50px;
+
+        .detail {
+            margin-right: 15%;
+        }
+
+        .activity{
+            display: flex;
+            flex-direction: column;
+        }
+
+            hr{
+                border-color: #3a6ea7;
+                background-color: #3a6ea7;
+                width: 50%;
+                height: 1px;
+            }
+        
+    }
+}

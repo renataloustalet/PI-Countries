@@ -1,0 +1,114 @@
+.contenedor {
+    display: inline-block;
+    text-align: center;
+    padding: 2%;
+    width: 50%;
+    background: #4fb468;
+    border-radius: 3%;
+    height: 100%;
+
+    label {
+        float: inline-start;
+    }
+
+    .diffy {
+        float: left;
+        width: 100%;
+        margin-top: 6px;
+    }
+
+    .diva {
+        float: left;
+        width: 100%;
+        margin-top: 6px;
+
+        input {
+            margin: 1%;
+            border: none;
+            border-radius: 5px;
+            width: 50%;
+        }
+
+        label {
+            padding: 12px 12px 12px 0;
+            float: inline-start;
+        }
+    }
+
+    button[type="submit"] {
+        font-size: 17px;
+        width: 25%;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        color: white;
+        background-color: #56b586;
+
+        &:hover {
+            background-color: white;
+            color: #56b586;
+        }
+    }
+
+    .error {
+        color: red;
+        text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.664);
+    }
+}
+
+.contenedor select {
+    margin: 2%;
+    width: 50%;
+    height: 30px;
+}
+
+.contenedor li {
+    margin: 2%;
+    margin-bottom: 2%;
+    width: 360px;
+    list-style: none;
+}
+
+.contenedor li button {
+    margin-right: 10px;
+    border-radius: 2px;
+}
+
+.countriesSelected {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20% 20%;
+}
+
+@media (max-width: 600px) {
+    .contenedor {
+        width: 90%;
+
+        h1 {
+            padding: 5%;
+            font-size: x-large;
+        }
+
+        label {
+            padding-left: 5%;
+            font-size: small;
+            float: inline-start;
+        }
+
+        input {
+            font-size: small;
+        }
+
+        input[type="text"]{
+            width: 70%;
+        }
+
+        select {
+            font-size: small;
+            width: 70%;
+        }
+
+        button[type="submit"] {
+            font-size: small;
+        }
+    }
+}

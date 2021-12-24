@@ -1,0 +1,75 @@
+.containerCountry {
+    display: grid;
+    grid-template-columns: 350px 350px 350px;
+    grid-column-gap: 20px;
+    justify-content: center;
+}
+.card {
+    background: #4fb468;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    margin: 2%;
+    padding-top: 4%;
+    border-radius: 3%;
+    box-shadow: 10px 10px 5px -4px rgba(36, 36, 36, 0.81);
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.178);
+        cursor: url('../../images/airplane.png'), auto;
+    }
+
+    img {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+        height: 100px;
+        width: 150px;
+    }
+
+    a {
+        padding: 1%;
+        text-decoration: none;
+        color: white;
+    }
+
+    p {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .containerCountry {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .card {
+            width: 300px;
+            p {
+                font-size: medium;
+            }
+        }
+    }
+
+    .filters{
+        display: flex;
+        flex-wrap: wrap;
+        .filter {
+            select{
+                font-size: small;
+            }
+        }
+    }
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1%;
+
+    .filter {
+        margin-right: 1%;
+    }
+}

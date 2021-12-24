@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     })
 
     if (name) {
-        const byName = await allCountries.filter(i => i.name.toLowerCase().includes(name.toLowerCase()))
+        const byName = await allCountries.filter(i => i.name.toLowerCase().startsWith(name.toLowerCase()))
         byName.length ?
             res.json(byName) :
             res.status(404).send({ 'msg': 'Not found' })
