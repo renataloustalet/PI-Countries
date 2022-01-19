@@ -2,16 +2,14 @@ body {
   margin: 0;
   color: white;
   background-image: url("../src/images/WorldMap.svg");
-  height: 100%;
+  background-size: 100%;
   background-position: center center;
-  background-repeat: no-repeat;
   font-family: "Signika", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-background-size: 100% 100%;
   -moz-background-size: 100% 100%;
   -o-background-size: 100% 100%;
-  background-size: 100% 100% !important;
 }
 
 select {

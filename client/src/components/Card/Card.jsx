@@ -27,30 +27,34 @@ function Card(props) {
                 {loading ? <p>Loading...</p> : details !== null ?
                     <div>
                         <div className={style.flag}>
-                            <h1>{details.name}</h1>
-                            <img src={details.image} alt={details.name}/>
+                            <h2>{details.name}</h2>
+                            <img src={details.image} alt={details.name} className={style.imagen} />
                         </div>
                         <div className={style.cont}>
                             <div className={style.detail}>
-                            <h3>Details</h3>
-                            <p>Code: {details.id}</p>
-                            <p>Continent: {details.continent}</p>
-                            <p>Capital: {details.capital}</p>
-                            <p>Population: {details.population}</p>
-                            <p>Subregion: {details.subregion}</p>
-                            <p>Area: {details.area} km²</p>
+                                <h3>Details</h3>
+                                <p>Code: {details.id}</p>
+                                <p>Continent: {details.continent}</p>
+                                <p>Capital: {details.capital}</p>
+                                <p>Population: {details.population}</p>
+                                <p>Subregion: {details.subregion}</p>
+                                <div className={style.activities}>
+                                    <h3>Activities</h3>
+                                    {activities?.length > 0 ? activities?.map(e => {
+                                        return (
+                                            <div key={e.id}>
+                                                <p>Name: {e.name}</p>
+                                                <p>Difficulty: {e.difficulty}</p>
+                                                <p>Duration: {e.duration}</p>
+                                                <p>Season: {e.season}</p>
+                                                <hr></hr>
+                                            </div>
+                                        )
+                                    })
+                                        : <p>Without activities</p>}
+                                </div>
                             </div>
-                            <div >
-                            <h3>Activities</h3>
-                                {activities?.length > 0 ?
-                                    <div key={details.id}>
-                                        <p>Name: {activities[0].name}</p>
-                                        <p>Difficulty: {activities[0].difficulty}</p>
-                                        <p>Duration: {activities[0].duration}</p>
-                                        <p>Season: {activities[0].season}</p>
-                                        {activities.length > 1 ? <hr></hr> : <p></p>} 
-                                    </div> : <p>Without activities</p>}
-                            </div>
+
                         </div>
                     </div> : <p>Country not found</p>
                 }

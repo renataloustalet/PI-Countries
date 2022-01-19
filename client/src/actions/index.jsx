@@ -47,23 +47,6 @@ export function getDetail(id) {
     }
 }
 
-export function getByName(name) {
-    return async function (dispatch) {
-        try {
-            const res = await axios.get(`http://localhost:3001/countries?name=${name}`)
-            return dispatch({
-                type: BY_NAME,
-                payload: res.data
-            })
-        } catch (error) {
-            return dispatch({
-                type: FAILURE,
-                payload: error.response.data.msg
-            })
-        }
-    }
-}
-
 export function postActivity(payload) {
     return async function () {
         try {
@@ -103,6 +86,23 @@ export function byActivity(payload) {
     }
 }
 
+export function getByName(name) {
+    return async function (dispatch) {
+        try {
+            const res = await axios.get(`http://localhost:3001/countries?name=${name}`)
+            return dispatch({
+                type: BY_NAME,
+                payload: res.data
+            })
+        } catch (error) {
+            return dispatch({
+                type: FAILURE,
+                payload: error.response.data.msg
+            })
+        }
+    }
+}
+
 export function getActivity() {
     return async function (dispatch) {
         try {
@@ -116,3 +116,4 @@ export function getActivity() {
         }
     }
 }
+

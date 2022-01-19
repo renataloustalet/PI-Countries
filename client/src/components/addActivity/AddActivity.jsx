@@ -99,23 +99,23 @@ function AddActivity() {
     const difficulty = [1, 2, 3, 4, 5];
 
     return (
-        <div>
+        <div className={style.form}>
             <div className={style.contenedor}>
                 <div>
-                    <h1>Add Activity</h1>
+                    <h2>Add Activity</h2>
                     <div>
                         <form onSubmit={handleSubmit}>
-                            <div className={style.diva}>
+                            <div className={style.act}>
                                 <label>Activity: </label>
                                 <input type="text" value={input.name} name="name" onChange={handleChange} placeholder="Activity name..." required />
                                 {errors.name && (
                                     <p className={style.error}>{errors.name}</p>
                                 )}
                             </div>
-                            <div className={style.diva}>
-                                <label>Season: </label>
+                            <div className={style.season}>
+                                <label className={style.titleSeason}>Season: </label>
                                 {season.map(e => (
-                                    <label>
+                                    <label className={style.label}>
                                         <input type="radio" value={e} name="season" onChange={handleCheckSeason} required />
                                         {e}
                                     </label>
@@ -131,14 +131,14 @@ function AddActivity() {
                                 </select>
                             </div>
 
-                            <div className={style.diva}>
+                            <div className={style.act}>
                                 <label>Duration: </label>
                                 <input type="text" value={input.duration} name="duration" onChange={handleChange} required placeholder="Hours...(only numbers)" />
                                 {errors.duration && (
                                     <p className={style.error}>{errors.duration}</p>
                                 )}
                             </div>
-                            <div>
+                            <div className={style.country}>
                                 <label>Country: </label>
                                 <select onChange={handleSelect} required>
                                     <option value="" selected hidden disabled>Select country</option>

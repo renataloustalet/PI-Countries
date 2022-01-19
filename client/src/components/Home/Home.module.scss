@@ -18,7 +18,7 @@
 
     &:hover {
         background-color: rgba(255, 255, 255, 0.178);
-        cursor: url('../../images/airplane.png'), auto;
+        cursor: url("../../images/airplane.png"), auto;
     }
 
     img {
@@ -40,7 +40,7 @@
     }
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 1000px) {
     .containerCountry {
         display: flex;
         align-items: center;
@@ -53,12 +53,27 @@
         }
     }
 
-    .filters{
+    .filters {
         display: flex;
         flex-wrap: wrap;
         .filter {
-            select{
+            select {
                 font-size: small;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1500px) {
+    .containerCountry {
+        display: grid;
+        grid-template-columns: 350px 350px;
+        grid-column-gap: 20px;
+        justify-content: center;
+        .card {
+            width: 300px;
+            p {
+                font-size: medium;
             }
         }
     }

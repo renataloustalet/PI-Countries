@@ -31,7 +31,8 @@ function reducer(state = initialState, action) {
                 countries: action.payload,
                 allContinents: action.payload,
                 population: action.payload,
-                allActivities: action.payload
+                allActivities: action.payload,
+                searchName: action.payload
             }
         case GET_DETAIL:
             return {

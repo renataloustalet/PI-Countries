@@ -22,7 +22,7 @@ const { conn, Country } = require('./src/db.js');
 const axios = require('axios')
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(async () => {
+conn.sync({ force: false }).then(async () => {
   const apiCountriesResponse = await axios.get('https://restcountries.com/v3/all')
   let apiCountries = apiCountriesResponse.data.map((e) => {
     return {

@@ -1,23 +1,68 @@
 .contenedor {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     text-align: center;
     padding: 2%;
     width: 50%;
     background: #4fb468;
     border-radius: 3%;
     height: 100%;
+    margin: auto;
 
     label {
         float: inline-start;
     }
 
-    .diffy {
+    .diffi {
         float: left;
         width: 100%;
         margin-top: 6px;
     }
 
-    .diva {
+    .act {
+        float: left;
+        width: 100%;
+        margin-top: 6px;
+
+        input {
+            margin: 1%;
+            border: none;
+            border-radius: 5px;
+            width: 50%;
+        }
+
+        label {
+            padding: 12px 12px 12px 0;
+            float: inline-start;
+            width: 100px;
+            background-color: #132417;
+        }
+    }
+
+    .season {
+        float: left;
+        width: 100%;
+        margin-top: 6px;
+
+        input {
+            margin: 1%;
+            border: none;
+            border-radius: 5px;
+            width: 50%;
+        }
+
+        .titleSeason {
+            padding: 12px 12px 12px 0;
+            float: inline-start;
+            width: 100px;
+        }
+
+        .label {
+            width: 100px;
+        }
+    }
+
+    .country {
         float: left;
         width: 100%;
         margin-top: 6px;
@@ -35,6 +80,12 @@
         }
     }
 
+    select {
+        margin: 2%;
+        width: 50%;
+        height: 30px;
+    }
+
     button[type="submit"] {
         font-size: 17px;
         width: 25%;
@@ -43,6 +94,7 @@
         border: none;
         color: white;
         background-color: #56b586;
+        cursor: pointer;
 
         &:hover {
             background-color: white;
@@ -54,12 +106,6 @@
         color: red;
         text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.664);
     }
-}
-
-.contenedor select {
-    margin: 2%;
-    width: 50%;
-    height: 30px;
 }
 
 .contenedor li {
@@ -77,29 +123,39 @@
 .countriesSelected {
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20% 20%;
+
+    button {
+        font-size: 17px;
+        width: 30%;
+        border-radius: 10px;
+        border: none;
+        color: white;
+        background-color: #34a57f;
+        cursor: pointer;
+    }
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 700px) {
     .contenedor {
         width: 90%;
+        display: flex;
+        align-items: center;
 
-        h1 {
+        h2 {
             padding: 5%;
-            font-size: x-large;
+            font-size: 25px;
         }
 
         label {
-            padding-left: 5%;
             font-size: small;
-            float: inline-start;
         }
 
         input {
             font-size: small;
         }
 
-        input[type="text"]{
-            width: 70%;
+        input[type="text"] {
+            width: 40%;
         }
 
         select {
@@ -108,7 +164,60 @@
         }
 
         button[type="submit"] {
-            font-size: small;
+            width: 20%;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .act {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: auto;
+        }
+
+        .season {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            label {
+                display: grid;
+                grid-template-columns: 30px 30px;
+            }
+        }
+
+        .diffi {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-self: center;
+
+            select {
+                width: 40%;
+            }
+        }
+
+        .country {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: auto;
+
+            select {
+                width: 40%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1500px) {
+    .contenedor {
+        h2 {
+            font-size: 20px;
         }
     }
 }
