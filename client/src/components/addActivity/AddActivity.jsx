@@ -56,13 +56,11 @@ function AddActivity() {
         })
     }
 
-    function handleCheckSeason(e) {
-        if (e.target.checked) {
-            setInput({
-                ...input,
-                season: e.target.value
-            })
-        }
+    function handleSeason(e) {
+        setInput({
+            ...input,
+            season: e.target.value
+        })
     }
 
     function handleSelctDifficulty(e) {
@@ -93,8 +91,6 @@ function AddActivity() {
         history.push('/countries')
     }
 
-    console.log(input)
-
     const season = ['Summer', 'Autumn', 'Winter', 'Spring'];
     const difficulty = [1, 2, 3, 4, 5];
 
@@ -113,24 +109,23 @@ function AddActivity() {
                                 )}
                             </div>
                             <div className={style.season}>
-                                <label className={style.titleSeason}>Season: </label>
-                                {season.map(e => (
-                                    <label className={style.label}>
-                                        <input type="radio" value={e} name="season" onChange={handleCheckSeason} required />
-                                        {e}
-                                    </label>
-                                ))}
+                                <label>Season: </label>
+                                <select onChange={handleSeason} required>
+                                    <option value="" hidden>Select season</option>
+                                    {season.map(e => (
+                                        <option value={e} name="season" key={e} >{e}</option>
+                                    ))}
+                                </select>
                             </div>
                             <div className={style.diffi}>
                                 <label>Difficulty: </label>
                                 <select onChange={handleSelctDifficulty} required >
-                                    <option value="" selected hidden disabled>Choose an option</option>
+                                    <option value="" hidden>Choose an option</option>
                                     {difficulty.map(e => (
                                         <option value={e} name="difficulty">{e}</option>
                                     ))}
                                 </select>
                             </div>
-
                             <div className={style.act}>
                                 <label>Duration: </label>
                                 <input type="text" value={input.duration} name="duration" onChange={handleChange} required placeholder="Hours...(only numbers)" />
@@ -141,7 +136,7 @@ function AddActivity() {
                             <div className={style.country}>
                                 <label>Country: </label>
                                 <select onChange={handleSelect} required>
-                                    <option value="" selected hidden disabled>Select country</option>
+                                    <option value="" hidden>Select country</option>
                                     {countries.map(e => (
                                         <option value={e.id} name="countries" key={e.id} >{e.name}</option>
                                     ))}

@@ -22,8 +22,8 @@ const { conn, Country } = require('./src/db.js');
 const axios = require('axios')
 
 // Syncing all the models at once.
-conn.sync({ force: false }).then(async () => {
-  const apiCountriesResponse = await axios.get('https://restcountries.com/v3/all')
+conn.sync({ force: true }).then(async () => {
+  const apiCountriesResponse = await axios.get('https://restcountries.com/v3/all');
   let apiCountries = apiCountriesResponse.data.map((e) => {
     return {
       id: e.cca3,
@@ -35,8 +35,8 @@ conn.sync({ force: false }).then(async () => {
       area: e.area,
       population: e.population
     }
-  })
-  await Country.bulkCreate(apiCountries)
+  });
+  await Country.bulkCreate(apiCountries);
   server.listen(3001, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });

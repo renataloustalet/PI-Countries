@@ -13,11 +13,13 @@
         }
     }
 
-    .onlyImg {
+    .home {
+        margin: auto;
+        color: white;
+        font-size: 22px;
+        margin-bottom: 2%;
         padding-top: 2px;
         padding-bottom: 2px;
-        position: relative;
-        left: -300px;
         &:hover {
             cursor: url("../../images/airplane.png"), auto;
         }
@@ -27,24 +29,6 @@
         color: white;
         font-size: 22px;
         text-decoration: none;
-    }
-}
-
-.topnav {
-    .a {
-        display: flex;
-        height: 50px;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .add {
-        float: left;
-        display: block;
-        color: white;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
     }
 
     input {
@@ -86,10 +70,9 @@
             width: 50px;
         }
 
-        .onlyImg {
+        .home {
             width: 50px;
-            position: relative;
-            left: -110px;
+            color: white;
         }
 
         input {
@@ -100,9 +83,6 @@
     }
 }
 
-@media screen and (min-width: 700px) and (max-width:1500px){
-    .onlyImg {
-        position: relative;
-        left: -300px;
-    }
+a {
+    text-decoration: none;
 }

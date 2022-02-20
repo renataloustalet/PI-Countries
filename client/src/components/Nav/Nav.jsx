@@ -36,8 +36,8 @@ function Nav() {
                             <input type="text" placeholder="Country..." onChange={handleChange} />
                             <AiOutlineSearch className={style.submit} />
                         </div>
-                    </> : <Link to='/countries' onClick={handleClick}>
-                            <img src={earth} className={style.onlyImg}/>
+                    </> : <Link to='/countries' onClick={handleClick} className={style.home}>
+                            Home
                         </Link>}
             </div>
             {error !== "" && <p className={style.error}>{error}</p>}

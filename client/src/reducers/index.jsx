@@ -109,7 +109,7 @@ function reducer(state = initialState, action) {
                 countries: continentFilter
             }
         case BY_ACTIVITY:
-            const allActivities = state.countries;
+            const allActivities = state.allActivities;
             const activityFilter = action.payload === 'All' ? allActivities :
                 allActivities.filter(c => c.activities.find((element) => element.name.toLowerCase() === action.payload.toLowerCase()))
             return {

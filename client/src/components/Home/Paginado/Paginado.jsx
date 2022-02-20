@@ -15,7 +15,7 @@ function Paginado({currentPage, setCurrentPage, max}){
   };
 
   const onKeyDown = e => {
-    if (e.keyCode == 13) {
+    if (e.keyCode === 13) {
       setCurrentPage (parseInt (e.target.value));
       if (
         parseInt (e.target.value < 1) ||

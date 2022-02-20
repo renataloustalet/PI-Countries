@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getActivity, byContinent, byOrder, byPopulation, getCountries, byActivity } from '../../actions/index'
+import { getActivity, byContinent, byPopulation, byOrder, getCountries, byActivity } from '../../actions/index'
 import style from './Home.module.scss'
-
 
 import Paginado from './Paginado/Paginado'
 
@@ -12,7 +11,6 @@ function Home() {
     const [order, setOrder] = useState('')
 
     const countries = useSelector(state => state.countries)
-
     const activity = useSelector(state => state.activity)
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -22,6 +20,7 @@ function Home() {
 
     useEffect(() => {
         dispatch(getCountries())
+        dispatch(byActivity())
     }, [dispatch])
 
     function handleOrder(e) {
@@ -31,7 +30,7 @@ function Home() {
     }
 
     function handleContinents(e) {
-        e.preventDefault()
+        e.preventDefault();
         dispatch(byContinent(e.target.value))
         setOrder(e.target.value)
     }
@@ -52,11 +51,10 @@ function Home() {
         dispatch(getActivity())
     }, [])
 
-
     return (
         <div>
             <div className={style.filters}>
-            <div className={style.filter}>
+                <div className={style.filter}>
                     <select onChange={handleOrderPopulation}>
                         <option value='Max'>Max population</option>
                         <option value='Min'>Min population</option>

@@ -34,8 +34,7 @@
         label {
             padding: 12px 12px 12px 0;
             float: inline-start;
-            width: 100px;
-            background-color: #132417;
+            width: 80px;
         }
     }
 
@@ -51,14 +50,9 @@
             width: 50%;
         }
 
-        .titleSeason {
+        label {
             padding: 12px 12px 12px 0;
             float: inline-start;
-            width: 100px;
-        }
-
-        .label {
-            width: 100px;
         }
     }
 
@@ -106,23 +100,25 @@
         color: red;
         text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.664);
     }
+
+    li {
+        margin: 2%;
+        margin-bottom: 2%;
+        width: 360px;
+        list-style: none;
+    
+        button {
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+    }
 }
 
-.contenedor li {
-    margin: 2%;
-    margin-bottom: 2%;
-    width: 360px;
-    list-style: none;
-}
-
-.contenedor li button {
-    margin-right: 10px;
-    border-radius: 2px;
-}
 
 .countriesSelected {
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20% 20%;
+    margin: auto;
 
     button {
         font-size: 17px;
@@ -183,9 +179,8 @@
             justify-content: center;
             align-items: center;
 
-            label {
-                display: grid;
-                grid-template-columns: 30px 30px;
+            select {
+                width: 40%;
             }
         }
 
@@ -212,6 +207,22 @@
             }
         }
     }
+
+    .countriesSelected{
+        display: grid;
+        grid-template-columns: 20% 20% 20%;
+        font-size: 12px;
+
+        button {
+            font-size: 12px;
+            width: 30%;
+            border-radius: 10px;
+            border: none;
+            color: white;
+            background-color: #34a57f;
+            cursor: pointer;
+        }
+    }
 }
 
 @media screen and (min-width: 700px) and (max-width: 1500px) {
@@ -219,5 +230,12 @@
         h2 {
             font-size: 20px;
         }
+    }
+
+    .countriesSelected{
+        display: grid;
+        grid-template-columns: 20% 20% 20%;
+        margin: auto;
+        font-size: 12px;
     }
 }
