@@ -49,41 +49,41 @@ function Home() {
 
     useEffect(() => {
         dispatch(getActivity())
-    }, [])
+    }, [dispatch])
 
     return (
         <div>
             <div className={style.filters}>
                 <div className={style.filter}>
                     <select onChange={handleOrderPopulation}>
-                        <option value='Max'>Max population</option>
-                        <option value='Min'>Min population</option>
+                        <option value='Max' key='Max'>Max population</option>
+                        <option value='Min' key='Min'>Min population</option>
                     </select>
                 </div>
                 <div className={style.filter}>
                     <select onChange={handleContinents}>
-                        <option value='All'>All continents</option>
-                        <option value='Africa'>Africa</option>
-                        <option value='Antarctica'>Antarctica</option>
-                        <option value='Asia'>Asia</option>
-                        <option value='Europe'>Europe</option>
-                        <option value='North America'>North America</option>
-                        <option value='Oceania'>Oceania</option>
-                        <option value='South America'>South America</option>
+                        <option value='All' key='All'>All continents</option>
+                        <option value='Africa' key='Africa'>Africa</option>
+                        <option value='Antarctica' key='Antarctica'>Antarctica</option>
+                        <option value='Asia' key='Asia'>Asia</option>
+                        <option value='Europe' key='Europe'>Europe</option>
+                        <option value='North America' key='NorthAmerica'>North America</option>
+                        <option value='Oceania' key='Oceania'>Oceania</option>
+                        <option value='South America' key='SouthAmerica'>South America</option>
                     </select>
                 </div>
                 <div className={style.filter}>
                     <select onChange={handleActivity}>
                         <option value='All'>All activities</option>
                         {activity.map(e => (
-                            <option value={e}>{e}</option>
+                            <option value={e} key={e}>{e}</option>
                         ))}
                     </select>
                 </div>
                 <div className={style.filter}>
                     <select onChange={handleOrder}>
-                        <option value='Asc'>A-Z</option>
-                        <option value='Desc'>Z-A</option>
+                        <option value='Asc' key='Asc'>A-Z</option>
+                        <option value='Desc' key='Desc'>Z-A</option>
                     </select>
                 </div>
             </div>
@@ -94,8 +94,8 @@ function Home() {
                         (currentPage - 1) * countriesPerPage + countriesPerPage
                     ).map(e => {
                         return (
-                            <Link to={'/countries/' + e.id}>
-                                <div key={e.id} className={style.card}>
+                            <Link to={'/countries/' + e.id} key={e.id}>
+                                <div  className={style.card}>
                                     <p>{e.name}</p>
                                     <img src={e.image} alt={e.name} />
                                 </div>

@@ -8,10 +8,10 @@ import Nav from './components/Nav/Nav';
 function App() {
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter >
         <Nav />
-        <Route exact path='/countries' component={Home} />
-        <Route exact path="/countries/:id" component={Card} />
+        <Route exact path='/' component={Home} />
+        <Route exact path='/countries/:id' component={Card} />
         <Route exact path='/activity' component={AddActivity} />
       </BrowserRouter>
     </div>

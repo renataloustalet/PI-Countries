@@ -3,15 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import { getActivity, getCountries, postActivity } from '../../actions/index'
 import style from './AddActivity.module.scss'
+import Swal from 'sweetalert2'
 
 function valida(input) {
     let errors = {}
     if (!input.name) {
         errors.name = "Name required"
-    } else if (!input.duration) {
-        errors.duration = "Duration required"
-    } else if (!/\b([1-9]|1[0-9]|2[0-4])\b/.test(input.duration)) {
-        errors.duration = "Invalid number. Between 1-24"
     }
     return errors;
 }
@@ -20,6 +17,7 @@ function AddActivity() {
     const dispatch = useDispatch()
     const history = useHistory()
     const countries = useSelector(state => state.countries)
+
     const [errors, setErrors] = useState({})
 
     const [input, setInput] = useState({
@@ -36,7 +34,7 @@ function AddActivity() {
 
     useEffect(() => {
         dispatch(getActivity())
-    }, [])
+    }, [dispatch])
 
     function handleChange(e) {
         setInput({
@@ -70,6 +68,13 @@ function AddActivity() {
         })
     }
 
+    function handleSelectDuration(e) {
+        setInput({
+            ...input,
+            duration: e.target.value
+        })
+    }
+
     function handleDelete(e) {
         setInput({
             ...input,
@@ -80,7 +85,10 @@ function AddActivity() {
     function handleSubmit(e) {
         e.preventDefault();
         dispatch(postActivity(input))
-        alert("Send")
+        Swal.fire({
+            title: 'Activity created successfully',
+            confirmButtonColor: "#34a57f",
+        })
         setInput({
             name: '',
             difficulty: '',
@@ -88,11 +96,12 @@ function AddActivity() {
             season: '',
             countries: []
         })
-        history.push('/countries')
+        history.push('/')
     }
 
     const season = ['Summer', 'Autumn', 'Winter', 'Spring'];
     const difficulty = [1, 2, 3, 4, 5];
+    const duration = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
 
     return (
         <div className={style.form}>
@@ -126,12 +135,14 @@ function AddActivity() {
                                     ))}
                                 </select>
                             </div>
-                            <div className={style.act}>
+                            <div className={style.duration}>
                                 <label>Duration: </label>
-                                <input type="text" value={input.duration} name="duration" onChange={handleChange} required placeholder="Hours...(only numbers)" />
-                                {errors.duration && (
-                                    <p className={style.error}>{errors.duration}</p>
-                                )}
+                                <select onChange={handleSelectDuration} required>
+                                    <option value="" hidden>Choose an option</option>
+                                    {duration.map(e => (
+                                        <option value={e} name="duration">{e}</option>
+                                    ))}
+                                </select>
                             </div>
                             <div className={style.country}>
                                 <label>Country: </label>

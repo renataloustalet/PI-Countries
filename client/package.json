@@ -20,6 +20,7 @@
     "redux-mock-store": "^1.5.4",
     "redux-thunk": "^2.4.0",
     "sass": "^1.45.1",
+    "sweetalert2": "^11.4.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

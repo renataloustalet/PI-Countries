@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getDetail } from '../../actions'
 import style from './Card.module.scss'
+import flyingAirplane from '../../images/flyingAirplane.svg'
 
 function Card(props) {
     const dispatch = useDispatch()
@@ -10,7 +11,7 @@ function Card(props) {
 
     useEffect(() => {
         dispatch(getDetail(props.match.params.id))
-    }, [])
+    }, [dispatch])
 
     const activities = details.activities?.map(e => {
         return {
@@ -24,7 +25,7 @@ function Card(props) {
     return (
         <div>
             <div className={style.card}>
-                {loading ? <p>Loading...</p> : details !== null ?
+                {loading ? <img src={flyingAirplane} /> : details !== null ?
                     <div>
                         <div className={style.flag}>
                             <h2>{details.name}</h2>
@@ -32,12 +33,14 @@ function Card(props) {
                         </div>
                         <div className={style.cont}>
                             <div className={style.detail}>
-                                <h3>Details</h3>
-                                <p>Code: {details.id}</p>
-                                <p>Continent: {details.continent}</p>
-                                <p>Capital: {details.capital}</p>
-                                <p>Population: {details.population}</p>
-                                <p>Subregion: {details.subregion}</p>
+                                <div className={style.details}>
+                                    <h3>Details</h3>
+                                    <p>Code: {details.id}</p>
+                                    <p>Continent: {details.continent}</p>
+                                    <p>Capital: {details.capital}</p>
+                                    <p>Population: {details.population}</p>
+                                    <p>Subregion: {details.subregion}</p>
+                                </div>
                                 <div className={style.activities}>
                                     <h3>Activities</h3>
                                     {activities?.length > 0 ? activities?.map(e => {
@@ -54,7 +57,6 @@ function Card(props) {
                                         : <p>Without activities</p>}
                                 </div>
                             </div>
-
                         </div>
                     </div> : <p>Country not found</p>
                 }
