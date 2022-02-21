@@ -24,9 +24,9 @@ La idea general es crear una aplicación en la cual se pueda ver información de
 
 ## Previews
 
-<img height="500" src="./home.jpg"/>
-<img height="500" src="./search.jpg" />
-<img height="500" src="./details.jpg"/>
-<img height="500" src="./addActivity.jpg"/>
-<img height="500" src="./detailsWithActivity.jpg"/>
+<img height="500" src="./home.JPG"/>
+<img height="500" src="./search.JPG" />
+<img height="500" src="./details.JPG"/>
+<img height="500" src="./addActivity.JPG"/>
+<img height="500" src="./detailsWithActivity.JPG"/>
 
