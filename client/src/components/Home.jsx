@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getActivity, byContinent, byPopulation, byOrder, getCountries, byActivity } from '../../actions/index'
-import style from './Home.module.scss'
-
-import Paginado from './Paginado/Paginado'
+import { getActivity, byContinent, byPopulation, byOrder, getCountries, byActivity } from '../actions/index';
+import style from '../styles/Home.module.scss';
+import Paginado from './Paginado'
 
 function Home() {
     const dispatch = useDispatch()

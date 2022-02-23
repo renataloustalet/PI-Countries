@@ -1,12 +1,13 @@
+@import "../sass/mixins.scss";
+@import "../sass/variables.scss";
+
 .contenedor {
-    display: flex;
-    justify-content: center;
     text-align: center;
+    @include flex(center, center, row);
+    @include size(50%, 100%);
     padding: 2%;
-    width: 50%;
-    background: #4fb468;
+    background: $green;
     border-radius: 3%;
-    height: 100%;
     margin: auto;
 
     .season,
@@ -42,28 +43,26 @@
 
     select {
         margin: 2%;
-        width: 50%;
-        height: 30px;
+        @include size(50%, 30px);
     }
 
     button[type="submit"] {
         font-size: 17px;
-        width: 25%;
-        height: 40px;
+        @include size(25%, 40px);
         border-radius: 10px;
         border: none;
-        color: white;
-        background-color: #56b586;
+        color: $white;
+        background-color: $lightGreen;
         cursor: pointer;
 
         &:hover {
-            background-color: white;
-            color: #56b586;
+            background-color: $white;
+            color: $lightGreen;
         }
     }
 
     .error {
-        color: red;
+        color: $red;
         text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.664);
     }
 
@@ -83,8 +82,8 @@
             border-radius: 10px;
             margin-left: 5px;
             border: none;
-            color: white;
-            background-color: #34a57f;
+            color: $white;
+            background-color: $darkGreen;
             cursor: pointer;
         }
     }
@@ -93,8 +92,7 @@
 @media screen and (max-width: 700px) {
     .contenedor {
         width: 90%;
-        display: flex;
-        align-items: center;
+        @include flex(center, center, row);
 
         h2 {
             padding: 5%;
@@ -121,10 +119,7 @@
         }
 
         .act {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
+            @include flex(center, center, column);
             margin-top: auto;
         }
 
@@ -132,10 +127,7 @@
         .diffi,
         .duration,
         .country {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
+            @include flex(center, center, column);
 
             select {
                 width: 40%;
@@ -153,8 +145,8 @@
             width: 30%;
             border-radius: 10px;
             border: none;
-            color: white;
-            background-color: #34a57f;
+            color: $white;
+            background-color: $darkGreen;
             cursor: pointer;
         }
     }

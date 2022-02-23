@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styles from './Paginado.module.scss';
+import styles from '../styles/Paginado.module.scss';
 
 function Paginado({currentPage, setCurrentPage, max}){
   const [input, setInput] = useState (1);

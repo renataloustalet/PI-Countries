@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom'
-import { getActivity, getCountries, postActivity } from '../../actions/index'
-import style from './AddActivity.module.scss'
+import { getActivity, getCountries, postActivity } from '../actions/index'
+import style from '../styles/AddActivity.module.scss';
 import Swal from 'sweetalert2'
 
 function valida(input) {

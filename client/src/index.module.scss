@@ -3,7 +3,7 @@ body {
   background-color: #7bc2e4;
   background-image: linear-gradient(0deg, #7bc2e4 0%, #3a6ea7 84%);
   background-repeat: no-repeat;
-  font-family: "Signika", sans-serif;
+  font-family: "Signika-Bold", sans-serif;
 }
 
 select {
@@ -15,8 +15,9 @@ select {
   cursor: pointer;
 }
 
-a {
-  text-decoration: none;
+@font-face {
+  font-family: "Signika-Bold";
+  src: url("./fonts/Signika-Bold.ttf") format("TrueType");
 }
 
 a:hover {

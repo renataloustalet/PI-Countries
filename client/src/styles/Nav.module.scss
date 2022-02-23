@@ -1,28 +1,31 @@
+@import "../sass/mixins.scss";
+@import "../sass/variables.scss";
+
 .topnav {
     margin-bottom: 2%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #3a6ea7;
+    @include flex(center, space-around, row);
+    background-color: $darkBlue;
 
     .img {
         padding-top: 2px;
         padding-bottom: 2px;
         &:hover {
-            cursor: url("../../images/airplane.png"), auto;
+            cursor: url("../images/airplane.png"), auto;
         }
     }
 
     .home {
-        color: white;
+        color: $white;
         font-size: 22px;
         &:hover {
-            cursor: url("../../images/airplane.png"), auto;
+            cursor: url("../images/airplane.png"), auto;
+            text-decoration: none;
         }
+
     }
 
     .activity {
-        color: white;
+        color: $white;
         font-size: 22px;
         text-decoration: none;
     }
@@ -48,7 +51,7 @@
 
     .search {
         .submit {
-            color: grey;
+            color: $grey;
             position: relative;
             top: 2px;
             left: -23px;
@@ -58,16 +61,14 @@
 }
 
 .error {
-    color: red;
+    color: $red;
     font-size: 20px;
-    display: flex;
-    justify-content: center;
+    @include flex(center, center, row);
 }
 
 @media (max-width: 700px) {
     .topnav {
-        display: flex;
-        justify-content: space-around;
+        @include flex(center, space-around, row);
         .activity {
             font-size: medium;
         }
@@ -78,7 +79,7 @@
 
         .home {
             width: 50px;
-            color: white;
+            color: $white;
             font-size: medium;
         }
 
@@ -88,7 +89,7 @@
             height: 25px;
         }
 
-        .pathActivity{
+        .pathActivity {
             .home {
                 font-size: medium;
             }

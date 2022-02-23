@@ -1,9 +1,9 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom';
-import { getByName } from '../../actions';
-import style from './Nav.module.scss'
-import earth from '../../images/earth.svg'
+import { getByName } from '../actions';
+import style from '../styles/Nav.module.scss';
+import earth from '../images/earth.svg';
 import { AiOutlineSearch } from "react-icons/ai";
 
 function Nav() {

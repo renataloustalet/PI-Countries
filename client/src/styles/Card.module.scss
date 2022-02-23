@@ -1,0 +1,161 @@
+@import "../sass/mixins.scss";
+@import "../sass/variables.scss";
+
+.card {
+    @include flex(center, center, row);
+    padding: 2%;
+    width: 60%;
+    background: $green;
+    border-radius: 20px;
+    margin: auto;
+
+    .flag {
+        float: left;
+        @include flex(stretch, flex-start, column);
+
+        h2 {
+            width: 400px;
+            text-align: center;
+        }
+
+        img {
+            @include size(400px, 300px);
+            border: 1px solid $lightGrey;
+            border-radius: 4px;
+            padding: 10px;
+        }
+    }
+
+    .cont {
+        @include flex(center, center, row);
+        padding-left: 90px;
+        padding-top: 80px;
+        .detail {
+            .details {
+                width: 300px;
+                float: left;
+            }
+
+            .activities {
+                float: right;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .card {
+        width: 80%;
+        padding: 4%;
+
+        .flag {
+            float: none;
+            h2 {
+                font-size: 25px;
+            }
+
+            img {
+                margin: auto;
+                @include size(200px, 110px);
+                border: 1px solid $lightGrey;
+                padding: 5px;
+            }
+        }
+
+        .cont {
+            padding-top: 5%;
+            padding-left: 0;
+            .detail {
+                @include flex(stretch, center, column);
+
+                h3 {
+                    padding-top: 5%;
+                    text-align: center;
+                    font-size: medium;
+                }
+
+                p {
+                    padding-left: 15%;
+                    font-size: small;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1500px) {
+    .card {
+        width: 80%;
+        padding: 4%;
+
+        .flag {
+            width: 50%;
+            float: left;
+            @include flex(center, center, column);
+            h2 {
+                font-size: 25px;
+            }
+
+            img {
+                @include size(250px, 150px);
+                border: 1px solid $lightGrey;
+                padding: 5px;
+            }
+        }
+
+        .cont {
+            padding-left: 0;
+            padding-top: 25px;
+            .detail {
+                .details {
+                    width: 160px;
+                    float: left;
+                }
+                h3 {
+                    font-size: 20px;
+                }
+
+                p {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1500px) and (max-width: 1700px) {
+    .card {
+        .flag {
+            width: 50%;
+            float: left;
+            @include flex(center, center, column);
+            h2 {
+                font-size: 25px;
+            }
+
+            img {
+                @include size(250px, 150px);
+                border: 1px solid $lightGrey;
+                padding: 5px;
+            }
+        }
+
+        .cont {
+            padding-left: 0;
+            padding-top: 25px;
+            .detail {
+                .details {
+                    width: 160px;
+                    float: left;
+                }
+                h3 {
+                    font-size: 20px;
+                }
+
+                p {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}

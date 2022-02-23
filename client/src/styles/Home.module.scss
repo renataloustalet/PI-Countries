@@ -1,50 +1,50 @@
+@import "../sass/mixins.scss";
+@import "../sass/variables.scss";
+
 .containerCountry {
     display: grid;
     grid-template-columns: 350px 350px 350px;
     grid-column-gap: 20px;
     justify-content: center;
-}
-.card {
-    background: #4fb468;
-    width: 100%;
-    height: 200px;
-    text-align: center;
-    cursor: pointer;
-    color: white;
-    margin: 2%;
-    padding-top: 4%;
-    border-radius: 3%;
-    box-shadow: 10px 10px 5px -4px rgba(36, 36, 36, 0.81);
 
-    &:hover {
-        background-color: rgba(255, 255, 255, 0.178);
-        cursor: url("../../images/airplane.png"), auto;
-    }
+    .card {
+        background: $green;
+        @include size(100%, 200px);
+        text-align: center;
+        cursor: pointer;
+        color: $white;
+        margin: 2%;
+        padding-top: 4%;
+        border-radius: 3%;
+        box-shadow: 10px 10px 5px -4px rgba(36, 36, 36, 0.81);
 
-    img {
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        padding: 5px;
-        height: 100px;
-        width: 150px;
-    }
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.178);
+            cursor: url("../images/airplane.png"), auto;
+        }
 
-    a {
-        padding: 1%;
-        text-decoration: none;
-        color: white;
-    }
+        img {
+            border: 1px solid $lightGrey;
+            border-radius: 4px;
+            padding: 5px;
+            @include size(150px, 100px);
+        }
 
-    p {
-        font-size: 20px;
+        a {
+            padding: 1%;
+            text-decoration: none;
+            color: $white;
+        }
+
+        p {
+            font-size: 20px;
+        }
     }
 }
 
 @media screen and (max-width: 1000px) {
     .containerCountry {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
+        @include flex(center, center, column);
         .card {
             width: 300px;
             p {

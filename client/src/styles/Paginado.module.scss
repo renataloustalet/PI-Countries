@@ -1,20 +1,19 @@
+@import "../sass/mixins.scss";
+@import "../sass/variables.scss";
+
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex(center, center, row);
     gap: 15px;
     margin-top: 2%;
     margin-bottom: 1%;
 
     button {
-        background-color: #4fb468;
+        background-color: $green;
         border: none;
         padding: 5px 10px;
         border-radius: 3px;
         height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flex(center, center, row);
         cursor: pointer;
 
         svg {
@@ -23,7 +22,7 @@
     }
 
     button[disabled] {
-        background-color: #5a9268;
+        background-color: $dullGreen;
         cursor: no-drop;
     }
 
@@ -33,14 +32,14 @@
         text-align: center;
         border: none;
         border-radius: 3px;
-        color: #3a6ea7;
+        color: $darkBlue;
     }
 
     p {
         height: 10px;
         align-items: center;
         text-align: center;
-        color: #3a6ea7;
+        color: $darkBlue;
         font-size: 17px;
     }
 }

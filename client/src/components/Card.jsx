@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getDetail } from '../../actions'
-import style from './Card.module.scss'
-import flyingAirplane from '../../images/flyingAirplane.svg'
+import { getDetail } from '../actions'
+import style from '../styles/Card.module.scss';
+import flyingAirplane from '../images/flyingAirplane.svg';
 
 function Card(props) {
     const dispatch = useDispatch()

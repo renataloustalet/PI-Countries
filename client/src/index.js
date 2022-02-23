@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.module.scss';
 import App from './App';
 import { Provider } from 'react-redux';
 import store from './store/index.jsx';
 import { BrowserRouter } from 'react-router-dom'
+import './fonts/Signika-Bold.ttf'
 
 ReactDOM.render(
   <React.StrictMode>
