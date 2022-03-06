@@ -16,7 +16,15 @@ function valida(input) {
 function AddActivity() {
     const dispatch = useDispatch()
     const history = useHistory()
-    const countries = useSelector(state => state.countries)
+    const countries = useSelector(state => state.countries).sort((a, b) => {
+        if(a.name < b.name){
+            return -1;
+        }
+        if(a.name > b.name){
+            return 1;
+        }
+        return 0;
+    })
 
     const [errors, setErrors] = useState({})
 
