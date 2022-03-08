@@ -1,3 +1,5 @@
+@import "./sass/variables.scss";
+
 body {
   color: white;
   background-color: #7bc2e4;
@@ -22,4 +24,17 @@ select {
 
 a:hover {
   text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $darkBlue;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $green;
+  border-radius: 20px;
 }
