@@ -10,6 +10,10 @@
     border-radius: 3%;
     margin: auto;
 
+    h2 {
+        padding: 3%;
+    }
+
     .season,
     .diffi,
     .duration,
@@ -18,7 +22,7 @@
         width: 100%;
         margin-top: 6px;
 
-        label { 
+        label {
             text-align: start;
             width: 80px;
         }
@@ -28,6 +32,7 @@
         float: left;
         width: 96%;
         margin-top: 6px;
+        margin-bottom: 6px;
 
         input {
             border: none;
@@ -91,15 +96,17 @@
 
 @media screen and (max-width: 700px) {
     .contenedor {
-        width: 90%;
+        width: 80%;
         @include flex(center, center, row);
 
         h2 {
-            padding: 5%;
-            font-size: 25px;
+            padding: 4%;
+            font-size: large;
         }
 
-        label, input {
+        label,
+        input {
+            @include flex(center, center, row);
             font-size: small;
         }
 
@@ -120,10 +127,75 @@
 
         .act {
             @include flex(center, center, column);
-            margin-top: auto;
+            width: 100%; 
         }
 
-        .season, 
+        .season,
+        .diffi,
+        .duration,
+        .country {
+            @include flex(center, center, column);
+
+            select {
+                width: 40%;
+            }
+        }
+    }
+
+    .countriesSelected {
+        display: grid;
+        grid-template-columns: 20% 20% 20%; 
+        font-size: 12px;
+
+        button {
+            font-size: 12px;
+            width: 30%;
+            border-radius: 10px;
+            border: none;
+            color: $white;
+            background-color: $darkGreen;
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width: 700px) and (orientation: landscape){
+    .contenedor {
+        width: 60%;
+        @include flex(center, center, row);
+
+        h2 {
+            padding: 4%;
+            font-size: large;
+        }
+
+        label,
+        input {
+            @include flex(center, center, row);
+            font-size: small;
+        }
+
+        input[type="text"] {
+            width: 40%;
+        }
+
+        select {
+            font-size: small;
+            width: 70%;
+        }
+
+        button[type="submit"] {
+            width: 20%;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .act {
+            @include flex(center, center, column);
+            width: 100%; 
+        }
+
+        .season,
         .diffi,
         .duration,
         .country {
@@ -152,17 +224,67 @@
     }
 }
 
-@media screen and (min-width: 700px) and (max-width: 1500px) {
+@media screen and (min-width: 700px) and (max-width: 1000px) {
     .contenedor {
+        width: 60%;
+        @include flex(center, center, row);
+
         h2 {
-            font-size: 20px;
+            padding: 4%;
+            font-size: large;
+        }
+
+        label,
+        input {
+            @include flex(center, center, row);
+            font-size: small;
+        }
+
+        input[type="text"] {
+            width: 50%;
+        }
+
+        select {
+            font-size: small;
+            width: 70%;
+        }
+
+        button[type="submit"] {
+            width: 20%;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .act {
+            @include flex(center, center, column);
+            width: 100%; 
+        }
+
+        .season,
+        .diffi,
+        .duration,
+        .country {
+            @include flex(center, center, column);
+
+            select {
+                width: 50%;
+            }
         }
     }
 
     .countriesSelected {
         display: grid;
         grid-template-columns: 20% 20% 20%;
-        margin: auto;
         font-size: 12px;
+
+        button {
+            font-size: 12px;
+            width: 30%;
+            border-radius: 10px;
+            border: none;
+            color: $white;
+            background-color: $darkGreen;
+            cursor: pointer;
+        }
     }
 }
