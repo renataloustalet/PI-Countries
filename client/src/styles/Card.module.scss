@@ -32,7 +32,7 @@
         padding-top: 80px;
         .detail {
             .details {
-                width: 300px;
+                width: 50%;
                 float: left;
             }
 
@@ -51,12 +51,58 @@
         .flag {
             float: none;
             h2 {
-                font-size: 25px;
+                font-size: large;
+                width: 60%;
+                margin: auto;
+                padding-bottom: 5%;
             }
 
             img {
                 margin: auto;
-                @include size(200px, 110px);
+                @include size(200px, 120px);
+                border: 1px solid $lightGrey;
+                padding: 5px;
+            }
+        }
+
+        .cont {
+            padding-top: 5%;
+            padding-left: 0;
+            .detail {
+                @include flex(stretch, center, column);
+
+                .details {
+                    width: 300px;
+                }
+                h3 {
+                    padding-top: 5%;
+                    text-align: center;
+                    font-size: medium;
+                }
+
+                p {
+                    padding-left: 15%;
+                    font-size: small;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) and (orientation: landscape){
+    .card {
+        width: 50%;
+        padding: 4%;
+
+        .flag {
+            float: none;
+            h2 {
+                font-size: large;
+            }
+
+            img {
+                margin: auto;
+                @include size(200px, 120px);
                 border: 1px solid $lightGrey;
                 padding: 5px;
             }
