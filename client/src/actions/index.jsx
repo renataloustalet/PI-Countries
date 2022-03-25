@@ -12,10 +12,13 @@ import {
     LOADING
 } from './constantes'
 
+/* const url = 'http://localhost:3003' */
+const url = 'https://renataloustalet.com.ar/apicountries';
+
 export function getCountries() {
     return async function (dispatch) {
         try {
-            const res = await axios.get('http://localhost:3001/countries')
+            const res = await axios.get(`${url}/countries`)
             return dispatch({
                 type: GET_COUNTRIES,
                 payload: res.data
@@ -35,7 +38,7 @@ export function getDetail(id) {
             dispatch({
                 type: LOADING
             })
-            const res = await axios.get(`http://localhost:3001/countries/${id}`)
+            const res = await axios.get(`${url}/countries/${id}`)
             return dispatch({
                 type: GET_DETAIL,
                 payload: res.data
@@ -49,7 +52,7 @@ export function getDetail(id) {
 export function postActivity(payload) {
     return async function () {
         try {
-            const res = await axios.post('http://localhost:3001/activity/', payload)
+            const res = await axios.post('https://renataloustalet.com.ar/apicountries/activity/', payload)
             return res;
         } catch (error) {
             console.log(error)
@@ -88,7 +91,7 @@ export function byActivity(payload) {
 export function getByName(name) {
     return async function (dispatch) {
         try {
-            const res = await axios.get(`http://localhost:3001/countries?name=${name}`)
+            const res = await axios.get(`${url}/countries?name=${name}`)
             return dispatch({
                 type: BY_NAME,
                 payload: res.data
@@ -105,7 +108,7 @@ export function getByName(name) {
 export function getActivity() {
     return async function (dispatch) {
         try {
-            const res = await axios.get('http://localhost:3001/activity');
+            const res = await axios.get(`${url}/activity`);
             return dispatch({
                 type: GET_ACTIVITY,
                 payload: res.data

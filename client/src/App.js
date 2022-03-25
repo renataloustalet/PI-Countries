@@ -9,7 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <Nav />
-      <Route exact path='/' component={Home} />
+      <Route exact path='/countries' component={Home} />
       <Route exact path='/countries/:id' component={Card} />
       <Route exact path='/activity' component={AddActivity} />
     </BrowserRouter>

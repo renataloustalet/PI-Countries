@@ -93,10 +93,8 @@ function AddActivity() {
     function handleSubmit(e) {
         e.preventDefault();
         dispatch(postActivity(input))
-        Swal.fire({
-            title: 'Activity created successfully',
-            confirmButtonColor: "#34a57f",
-        })
+
+       /*  alert('enviado') */
         setInput({
             name: '',
             difficulty: '',
@@ -104,7 +102,13 @@ function AddActivity() {
             season: '',
             countries: []
         })
-        history.push('/')
+        history.push('/countries')
+        Swal.fire({
+            title: 'Activity created successfully',
+            confirmButtonColor: "#34a57f"}/* ).then(function(){ 
+                window.location.replace('');
+            } */
+        ) 
     }
 
     const season = ['Winter', 'Spring', 'Autumn', 'Summer'];
