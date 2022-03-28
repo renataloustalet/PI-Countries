@@ -19,9 +19,9 @@ function Nav() {
     return (
         <div>
             <div className={style.topnav}>
-                {location.pathname === '/countries' ?
+                {location.pathname === '/countries/' ?
                     <>
-                        <Link to='/countries' >
+                        <Link to='/countries/' >
                             <img src={earth} className={style.img} alt='earth' />
                         </Link>
                         <Link to='/activity' className={style.activity}>
@@ -34,19 +34,19 @@ function Nav() {
                     </>
                     : location.pathname === '/activity' ?
                         <div className={style.pathActivity}>
-                            <Link to='/countries' >
+                            <Link to='/countries/' >
                                 <img src={earth} className={style.img} alt='earth' />
                             </Link>
-                            <Link to='/countries' className={style.home}>
+                            <Link to='/countries/' className={style.home}>
                                 Home
                             </Link>
                         </div>
                         :
                         <>
-                            <Link to='/countries' >
+                            <Link to='/countries/' >
                                 <img src={earth} className={style.img} alt='earth' />
                             </Link>
-                            <Link to='/countries' className={style.home}>
+                            <Link to='/countries/' className={style.home}>
                                 Home
                             </Link>
                             <Link to='/activity' className={style.activity}>
