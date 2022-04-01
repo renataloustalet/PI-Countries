@@ -10,7 +10,7 @@
 
 ## Enunciado
 
-La idea general es crear una aplicación en la cual se pueda ver información de  distintos paises utilizando la api externa [restcountries](https://restcountries.com/) y a partir de ella poder, entre otras cosas:
+Algunas de sus funcionalidades son:
 
   - Buscar paises
   - Filtrarlos / Ordenarlos
